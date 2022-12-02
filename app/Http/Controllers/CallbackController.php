@@ -40,6 +40,7 @@ class CallbackController extends Controller
                         "message" => $message
                     )
                 );
+                $db->query('update set column status 1')->where();
                 break;
             case 'RECHARGE_FAILURE':
                 # code...
