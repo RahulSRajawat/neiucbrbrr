@@ -28,8 +28,24 @@ use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Client as GuzzleClient;
 use Illuminate\Support\Facades\Http;
 Route::get('/test', function () {
-    $service = 'aeps/banklist/index';
-    $res = json_decode(ApiController::post($service));
+    // Bank List Data
+    // $service = 'aeps/banklist/index';
+    // $res = json_decode(ApiController::post($service));
+    // echo "<pre>";
+    // print_r($res);
+    
+    // ONBOARDING POST DATA 
+    $service = 'onboard/onboardnew/getonboardurl';
+    $callback_url = env('APP_URL')."api/v1/payscallback";
+    $body = array(
+            "merchantcode"=>"12",
+            "mobile"=>"9356865520",
+            "is_new"=>"0",
+            "email"=>"nehiro2808@diratu.com",
+            "firm"=>"PAYMONEY",
+            "callback"=>$callback_url
+            );
+    $res = json_decode(ApiController::post($service,$body));
     echo "<pre>";
     print_r($res);
 });
