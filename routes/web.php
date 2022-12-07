@@ -2,6 +2,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ApiController;
 use App\Http\Controllers\BillPaymentController;
+use App\Http\Controllers\BusController;
 use App\Http\Controllers\CartsController;
 use App\Http\Controllers\DistributorController;
 use App\Http\Controllers\EmployeeController;
@@ -124,3 +125,7 @@ Route::get("/dmt", [DmtController::class, 'index']);
 Route::get("/remmiter", [RemmiterController::class, 'index']);
 Route::get("/confirm-dnr-tnxs", [RemmiterController::class, 'confrim']);
 Route::get("/listbene", [RemmiterController::class, 'listbene']);
+Route::get("/bus/index", [RemmiterController::class, 'index']);
+Route::get("/bus/detail", [BusController::class, 'detail']);
+Route::get("/bus/bus", [BusController::class, 'bus']);
+Route::get("/bus/bus-search", [BusController::class, 'bus_search']);
