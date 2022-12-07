@@ -12,6 +12,7 @@ use App\Http\Controllers\RetailerController;
 use App\Http\Controllers\SuperDistributorController;
 use App\Http\Controllers\UserController;
 use App\http\Controllers\DmtController;
+use App\http\Controllers\RemmiterController;
 use App\Models\JWT;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -122,6 +123,6 @@ Route::get("/payment-request", [BillPaymentController::class, 'paymentrequest'])
 Route::get("/dmt", [DmtController::class, 'index']);
 Route::get("/remmiter", [RemmiterController::class, 'index']);
 Route::get("/confirm-dnr-tnxs", [RemmiterController::class, 'confrim']);
-Route::get("/listbene", [DmtController::class, 'listbene']);
+Route::get("/listbene", [RemmiterController::class, 'listbene']);
 Route::get("/dmt", [DmtController::class, 'dmt.index']);
 Route::get("/dmt", [DmtController::class, 'dmt.index']);
