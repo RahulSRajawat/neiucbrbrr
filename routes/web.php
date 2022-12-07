@@ -118,3 +118,4 @@ Route::get("/demo", [BillPaymentController::class, 'demo']);
 Route::get("/matm", [BillPaymentController::class, 'matm']);
 Route::get("/moneytransfer", [BillPaymentController::class, 'moneytransfer']);
 Route::get("/payment-request", [BillPaymentController::class, 'paymentrequest']);
+Route::get("/dmt", [BillPaymentController::class, 'dmt.index']);
