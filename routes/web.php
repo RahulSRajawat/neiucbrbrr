@@ -124,5 +124,3 @@ Route::get("/dmt", [DmtController::class, 'index']);
 Route::get("/remmiter", [RemmiterController::class, 'index']);
 Route::get("/confirm-dnr-tnxs", [RemmiterController::class, 'confrim']);
 Route::get("/listbene", [RemmiterController::class, 'listbene']);
-Route::get("/dmt", [DmtController::class, 'dmt.index']);
-Route::get("/dmt", [DmtController::class, 'dmt.index']);
