@@ -21,3 +21,5 @@ Route::group(['prefix' => 'v1'],function(){
     Route::get('/payscallback',[CallbackController::class,'index']);
     Route::post('/cart-store',[CartsController::class,'store'])->name('add-to-cart');
 });
+
+Route::post('/v1/payscallback', 'PaymentController@Data'); // receives payment status
