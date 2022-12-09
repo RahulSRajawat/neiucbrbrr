@@ -2,7 +2,6 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ApiController;
 use App\Http\Controllers\BillPaymentController;
-use App\Http\Controllers\BusController;
 use App\Http\Controllers\CartsController;
 use App\Http\Controllers\DistributorController;
 use App\Http\Controllers\EmployeeController;
@@ -12,8 +11,6 @@ use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\RetailerController;
 use App\Http\Controllers\SuperDistributorController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\DmtController;
-use App\Http\Controllers\RemmiterController;
 use App\Models\JWT;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -36,8 +33,8 @@ Route::get('/test', function () {
     // $res = json_decode(ApiController::post($service));
     // echo "<pre>";
     // print_r($res);
-    
-    // ONBOARDING POST DATA 
+
+    // ONBOARDING POST DATA
     $service = 'onboard/onboardnew/getonboardurl';
     $callback_url = env('APP_URL')."api/v1/payscallback";
     $body = array(
@@ -73,7 +70,7 @@ Route::group(["prefix" => "admin", "middleware" => ["isAdmin", "auth", "PreventB
     Route::get("destroy-product/{id}", [ProductsController::class, 'destroy'])->name("all-product.destroy");
     Route::get("status-product/{id}/{status}", [ProductsController::class, 'status'])->name("all-product.status");
     // Products End
-    // Invoice Start 
+    // Invoice Start
     Route::get("all-invoice", [InvoiceController::class, 'index'])->name("all-invoice.index");
     Route::get("user-invoice-view/{invoice_number}", [InvoiceController::class, 'invoice_view'])->name("user-invoice.view");
     Route::post("invoice-status", [InvoiceController::class, 'invoice_status'])->name("invoice.status");
@@ -121,11 +118,3 @@ Route::get("/demo", [BillPaymentController::class, 'demo']);
 Route::get("/matm", [BillPaymentController::class, 'matm']);
 Route::get("/moneytransfer", [BillPaymentController::class, 'moneytransfer']);
 Route::get("/payment-request", [BillPaymentController::class, 'paymentrequest']);
-Route::get("/dmt", [DmtController::class, 'index']);
-Route::get("/remmiter", [RemmiterController::class, 'index']);
-Route::get("/confirm-dnr-tnxs", [RemmiterController::class, 'confrim']);
-Route::get("/listbene", [RemmiterController::class, 'listbene']);
-Route::get("/bus/index", [RemmiterController::class, 'index']);
-Route::get("/bus/detail", [BusController::class, 'detail']);
-Route::get("/bus/bus", [BusController::class, 'bus']);
-Route::get("/bus/bus-search", [BusController::class, 'bus_search']);
