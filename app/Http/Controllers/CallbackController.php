@@ -11,7 +11,7 @@ class CallbackController extends Controller
 {
     public function __construct()
     {
-        parent::__construct();
+       // // parent::__construct();
         $this->load->model(array('AdminModel', 'AepsModel', 'CommissionSlotModel', 'UserTypeModel', 'AadharPayModel'));
         $this->load->library(array('AEPS', 'PWAEPS'));
         $this->load->helper('url');
