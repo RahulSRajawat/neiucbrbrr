@@ -19,11 +19,12 @@ class CallbackController extends Controller
         // date_default_timezone_set("Asia/Kolkata");
       //  $this->load->database();
     }
-    public function index()
+    public function index(Request $request)
     {
-        dd("Test");
+
         $data = file_get_contents('php://input');
         $decode_data = json_decode($data);
+        dd($data);
         switch ($decode_data->event) {
             case 'RECHARGE_SUCCESS':
                 $param = $decode_data->param;
