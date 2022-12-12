@@ -12,12 +12,12 @@ class CallbackController extends Controller
     public function __construct()
     {
        // // parent::__construct();
-        $this->load->model(array('AdminModel', 'AepsModel', 'CommissionSlotModel', 'UserTypeModel', 'AadharPayModel'));
-        $this->load->library(array('AEPS', 'PWAEPS'));
-        $this->load->helper('url');
-        $this->load->library('email');
-        date_default_timezone_set("Asia/Kolkata");
-        $this->load->database();
+        // $this->load->model(array('AdminModel', 'AepsModel', 'CommissionSlotModel', 'UserTypeModel', 'AadharPayModel'));
+        // $this->load->library(array('AEPS', 'PWAEPS'));
+        // $this->load->helper('url');
+        // $this->load->library('email');
+        // date_default_timezone_set("Asia/Kolkata");
+      //  $this->load->database();
     }
     public function index()
     {
