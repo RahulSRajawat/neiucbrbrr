@@ -21,6 +21,7 @@ class CallbackController extends Controller
     }
     public function index()
     {
+        dd("Test");
         $data = file_get_contents('php://input');
         $decode_data = json_decode($data);
         switch ($decode_data->event) {
