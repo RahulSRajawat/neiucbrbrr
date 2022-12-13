@@ -12,6 +12,7 @@ use App\Http\Controllers\RetailerController;
 use App\Http\Controllers\SuperDistributorController;
 use App\Http\Controllers\UserController;
 use App\Models\JWT;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 /*
@@ -24,9 +25,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-use GuzzleHttp\Exception\GuzzleException;
-use GuzzleHttp\Client as GuzzleClient;
-use Illuminate\Support\Facades\Http;
+Route::get('migrate', function () {
+	
+	/* php artisan migrate */
+    Artisan::call('migrate');
+    dd("Done");
+});
 Route::get('/test', function () {
     // Bank List Data
     // $service = 'aeps/banklist/index';
