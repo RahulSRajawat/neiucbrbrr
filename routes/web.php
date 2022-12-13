@@ -39,10 +39,10 @@ Route::get('/test', function () {
     $callback_url = env('APP_URL')."api/v1/payscallback";
     $body = array(
             "merchantcode"=>"12",
-            "mobile"=>"9356865520",
+            "mobile"=>"8818820004",
             "is_new"=>"0",
-            "email"=>"nehiro2808@diratu.com",
-            "firm"=>"PAYMONEY",
+            "email"=>"vevbyervrv@diratu.com",
+            "firm"=>"MYMONEYSKING",
             "callback"=>$callback_url
             );
     $res = json_decode(ApiController::post($service,$body));
