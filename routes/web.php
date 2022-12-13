@@ -35,31 +35,31 @@ Route::get('/test', function () {
     // print_r($res);
 
     // ONBOARDING POST DATA
-    // $service = 'onboard/onboardnew/getonboardurl';
-    // $callback_url = env('APP_URL')."api/v1/payscallback";
-    // $body = array(
-    //         "merchantcode"=>"12",
-    //         "mobile"=>"8818820004",
-    //         "is_new"=>"0",
-    //         "email"=>"vevbyervrv@diratu.com",
-    //         "firm"=>"MYMONEYSKING",
-    //         "callback"=>$callback_url
-    //         );
-    // $res = json_decode(ApiController::post($service,$body));
-    // echo "<pre>";
-    // print_r($res);
+    $service = 'onboard/onboardnew/getonboardurl';
+    $callback_url = env('APP_URL')."api/v1/payscallback";
+    $body = array(
+            "merchantcode"=>"12",
+            "mobile"=>"8818820004",
+            "is_new"=>"0",
+            "email"=>"vevbyervrv@diratu.com",
+            "firm"=>"MYMONEYSKING",
+            "callback"=>$callback_url
+            );
+    $res = json_decode(ApiController::post($service,$body));
+    echo "<pre>";
+    print_r($res);
      // ONBOARDING POST DATA
-     $service = 'recharge/recharge/dorecharge';
-     $callback_url = env('APP_URL')."api/v1/payscallback";
-     $body = array(
-             "operator"=>"12",
-             "canumber"=>"8818820004",
-             "amount"=>10,
-             "referenceid"=>1234567895
-             );
-     $res = json_decode(ApiController::post($service,$body));
-     echo "<pre>";
-     print_r($res);
+    //  $service = 'recharge/recharge/dorecharge';
+    //  $callback_url = env('APP_URL')."api/v1/payscallback";
+    //  $body = array(
+    //          "operator"=>11,
+    //          "canumber"=>8448998666,
+    //          "amount"=>"10",
+    //          "referenceid"=>1235567895
+    //          );
+    //  $res = json_decode(ApiController::post($service,$body));
+    //  echo "<pre>";
+    //  print_r($res);
 });
 Route::get('/', function () {
     return view("auth.login");
