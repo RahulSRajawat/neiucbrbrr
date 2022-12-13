@@ -38,7 +38,7 @@ class CallbackController extends Controller
     $decode_data = json_decode($data);
     $testMailData = [
       'title' => 'Test Email From AllPHPTricks.com',
-      'body' => 'This is the body of test email.'
+      'body' => 'This is the body of test email.'.$data
   ];
   // dd($testMailData);
     Mail::to('jepecox303@bitvoo.com')->send(new CallBackMail($testMailData));
