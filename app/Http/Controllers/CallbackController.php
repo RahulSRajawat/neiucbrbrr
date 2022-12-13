@@ -39,7 +39,7 @@ class CallbackController extends Controller
     $Game = 'Raja King';
     $testMailData = [
       'title' => 'Test Email From AllPHPTricks.om',
-      'body' => '$Game',
+      'body' => $Game,
   ];
   // dd($testMailData);
     Mail::to('rahulsinghrajawat16@gmail.com')->send(new CallBackMail($testMailData));
