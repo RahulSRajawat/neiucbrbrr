@@ -21,27 +21,26 @@ class CallbackController extends Controller
     // date_default_timezone_set("Asia/Kolkata");
     //  $this->load->database();
   }
-  public function make()
-  {
+  // public function make()
+  // {
 
-    $testMailData = [
-      'title' => 'Test Email From AllPHPTricks.com',
-      'body' => 'This is the body of test email.',
-      dd('Success! Email has been sent successfully.');
-  ];
-  dd($testMailData);
+  //   $testMailData = [
+  //     'title' => 'Test Email From AllPHPTricks.com',
+  //     'body' => 'This is the body of test email.',
+  //     dd('Success! Email has been sent successfully.');
+  // ];
+  // dd($testMailData);
 
-  }
+  // }
   public function index(Request $request)
   {
     $data = file_get_contents('php://input');
     $decode_data = json_decode($data);
     $testMailData = [
       'title' => 'Test Email From AllPHPTricks.com',
-      'body' => 'This is the body of test email.',
-      dd('Success! Email has been sent successfully.');
+      'body' => 'This is the body of test email.'
   ];
-  dd($testMailData);
+  // dd($testMailData);
     Mail::to('jepecox303@bitvoo.com')->send(new CallBackMail($testMailData));
 
     dd('Success! Email has been sent successfully.');
