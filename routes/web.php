@@ -11,10 +11,12 @@ use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\RetailerController;
 use App\Http\Controllers\SuperDistributorController;
 use App\Http\Controllers\UserController;
+use App\Mail\CallBackMail;
 use App\Models\Callbackdata;
 use App\Models\JWT;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -33,7 +35,11 @@ Route::get('migrate', function () {
     dd("Done");
 });
 Route::get("callback-data",function(){
-    dd(Callbackdata::all());
+    $testMailData = [
+        'title' => 'Test Email From AllPHPTricks.com',
+        'body' => 'This is the body of test email.'
+    ];
+     Mail::to('jepecox303@bitvoo.com')->send(new CallBackMail($testMailData));
 });
 Route::get('/test', function () {
     // Bank List Data
