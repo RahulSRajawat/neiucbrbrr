@@ -10,15 +10,15 @@ use Illuminate\Queue\SerializesModels;
 class CallBackMail extends Mailable
 {
     use Queueable, SerializesModels;
-
+    public $testMailData;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($testMailData)
     {
-        //
+        $this->testMailData = $testMailData;
     }
 
     /**
