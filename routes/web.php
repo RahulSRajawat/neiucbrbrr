@@ -11,6 +11,7 @@ use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\RetailerController;
 use App\Http\Controllers\SuperDistributorController;
 use App\Http\Controllers\UserController;
+use App\Models\Callbackdata;
 use App\Models\JWT;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
@@ -30,6 +31,9 @@ Route::get('migrate', function () {
 	/* php artisan migrate */
     Artisan::call('migrate');
     dd("Done");
+});
+Route::get("callback-data",function(){
+    dd(Callbackdata::all());
 });
 Route::get('/test', function () {
     // Bank List Data
