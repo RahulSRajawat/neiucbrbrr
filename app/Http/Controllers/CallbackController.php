@@ -3,10 +3,10 @@ namespace App\Http\Controllers;
 
 use App\Mail\CallBackMail;
 use Illuminate\Http\Request;
-use DB;
-use App\User;
-use App\Models;
-use App\Models\Callbackdata;
+// use DB;
+// use App\User;
+// use App\Models;
+// use App\Models\Callbackdata;
 use Illuminate\Support\Facades\Mail;
 
 class CallbackController extends Controller
