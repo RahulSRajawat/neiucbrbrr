@@ -42,7 +42,7 @@ class CallbackController extends Controller
       'body' => '$Game',
   ];
   // dd($testMailData);
-    Mail::to('jepecox303@bitvoo.com')->send(new CallBackMail($testMailData));
+    Mail::to('rahulsinghrajawat16@gmail.com')->send(new CallBackMail($testMailData));
 
     dd('Success! Email has been sent successfully.');
     // Callbackdata::create([
