@@ -26,7 +26,7 @@ class CallbackController extends Controller
       "callback_data" => $data,
       "callback_event" => $decode_data->event,
     ]);
-    dd($data);
+    return redirect()->route("home");
     // switch ($decode_data->event) {
     //     case 'RECHARGE_SUCCESS':
     //         $param = $decode_data->param;
