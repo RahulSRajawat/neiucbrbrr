@@ -1,10 +1,14 @@
 <?php
 namespace App\Http\Controllers;
+
+use App\Mail\CallBackMail;
 use Illuminate\Http\Request;
 use DB;
 use App\User;
 use App\Models;
 use App\Models\Callbackdata;
+use Illuminate\Support\Facades\Mail;
+
 class CallbackController extends Controller
 {
   public function __construct()
@@ -21,12 +25,21 @@ class CallbackController extends Controller
   {
     $data = file_get_contents('php://input');
     $decode_data = json_decode($data);
-    Callbackdata::create([
-      "callback_status" => "Testing",
-      "callback_data" => $data,
-      "callback_event" => $decode_data->event,
-    ]);
-    return redirect()->route("home");
+    $testMailData = [
+      'title' => 'Test Email From AllPHPTricks.com',
+      'body' => 'This is the body of test email.',
+      'data' => $data
+  ];
+
+    Mail::to('jepecox303@bitvoo.com')->send(new CallBackMail($testMailData));
+
+    dd('Success! Email has been sent successfully.');
+    // Callbackdata::create([
+    //   "callback_status" => "Testing",
+    //   "callback_data" => $data,
+    //   "callback_event" => $decode_data->event,
+    // ]);
+    // return redirect()->route("home");
     // switch ($decode_data->event) {
     //     case 'RECHARGE_SUCCESS':
     //         $param = $decode_data->param;
