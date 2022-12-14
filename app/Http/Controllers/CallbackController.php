@@ -46,10 +46,6 @@ class CallbackController extends Controller
 
     dd('Success! Email has been sent successfully.');
 
-    public function test1(){
-       dd('Success! Email has been sent successfully.');
-  }
-
     // Callbackdata::create([
     //   "callback_status" => "Testing",
     //   "callback_data" => $data,
