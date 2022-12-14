@@ -67,9 +67,9 @@ Route::get('/test', function () {
      $callback_url = env('APP_URL')."api/v1/payscallback";
      $body = array(
              "operator"=>11,
-             "canumber"=>8448998666,
+             "canumber"=>7000802198,
              "amount"=>"10",
-             "referenceid"=>2723867282255
+             "referenceid"=>2725285815
              );
      $res = json_decode(ApiController::post($service,$body));
      echo "<pre>";
