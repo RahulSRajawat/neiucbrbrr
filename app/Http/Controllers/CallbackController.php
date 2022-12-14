@@ -46,6 +46,10 @@ class CallbackController extends Controller
 
     dd('Success! Email has been sent successfully.');
 
+    public function test1(){
+       dd('Success! Email has been sent successfully.');
+  }
+
     // Callbackdata::create([
     //   "callback_status" => "Testing",
     //   "callback_data" => $data,
@@ -98,8 +102,6 @@ class CallbackController extends Controller
     //         break;
     // }
   }
-  public function test1(){
-    echo json_encode(['status'=>200,'msg'=>'Transaction completed successfully']);
-}
+
 
 }
