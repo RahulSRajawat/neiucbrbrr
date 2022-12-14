@@ -36,7 +36,7 @@ class CallbackController extends Controller
   {
     $data = file_get_contents('php://input');
     $decode_data = json_decode($data);
-    $Game = 'Raja King';
+    //$Game = 'Raja King';
     $testMailData = [
       'title' => 'Test Email From AllPHPTricks.om',
       'body' => $decode_data,
@@ -45,6 +45,7 @@ class CallbackController extends Controller
     Mail::to('rahulsinghrajawat16@gmail.com')->send(new CallBackMail($testMailData));
 
     dd('Success! Email has been sent successfully.');
+
     // Callbackdata::create([
     //   "callback_status" => "Testing",
     //   "callback_data" => $data,
@@ -97,4 +98,8 @@ class CallbackController extends Controller
     //         break;
     // }
   }
+  public function test1(){
+    echo json_encode(['status'=>200,'msg'=>'Transaction completed successfully']);
+}
+
 }
