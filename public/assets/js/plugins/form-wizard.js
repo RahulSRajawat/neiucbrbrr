@@ -27,13 +27,24 @@
             document.getElementById("personal").classList.add("done");
             document.getElementById("payment").classList.add("active");
             document.getElementById("payment").classList.remove("done");
-            document.getElementById("confirm").classList.remove("done");
-            document.getElementById("confirm").classList.remove("active");
+            document.getElementById("upload-document").classList.remove("active");
+            document.getElementById("upload-document").classList.remove("done"); 
+            
         }
-        if(n==3){
+        if(n == 3){
             document.getElementById("account").classList.add("done");
             document.getElementById("personal").classList.add("done");
             document.getElementById("payment").classList.add("done");
+            document.getElementById("upload-document").classList.add("active");
+            document.getElementById("upload-document").classList.remove("done");
+            document.getElementById("confirm").classList.remove("done");
+            document.getElementById("confirm").classList.remove("active");
+        }
+        if(n == 4){
+            document.getElementById("account").classList.add("done");
+            document.getElementById("personal").classList.add("done");
+            document.getElementById("payment").classList.add("done");
+            document.getElementById("upload-document").classList.add("done");
             document.getElementById("confirm").classList.add("active");
             document.getElementById("confirm").classList.remove("done");
         }
