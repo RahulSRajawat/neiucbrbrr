@@ -15874,6 +15874,7 @@ textarea.form-control-lg {
   text-decoration: none;
   font-size: 1.125rem;
   -webkit-border-radius: 0.5rem;
+  font-size: 13px !important;
           border-radius: 0.5rem;
 }
 #top-tab-list li a .iq-icon {
