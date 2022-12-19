@@ -318,7 +318,7 @@
                                     </div>
                                     <button type="button" name="next"
                                         class="btn btn-primary next action-button float-end"
-                                        value="Submit">Submit</button>
+                                        value="Next">Next</button>
                                     <button type="button" name="previous"
                                         class="btn btn-dark previous action-button-previous float-end me-1"
                                         value="Previous">Previous</button>
@@ -393,14 +393,6 @@
                                 </fieldset>
                                 <fieldset>
                                     <div class="form-card text-start">
-                                        <div class="row">
-                                            <div class="col-7">
-                                                <h3 class="mb-4">Document Details:</h3>
-                                            </div>
-                                            <div class="col-5">
-                                                <h2 class="steps">Step 5 - 5</h2>
-                                            </div>
-                                        </div>
                                         <div class="form-card">
                                             <div class="row">
                                                 <div class="col-7">
@@ -425,9 +417,6 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <button type="button" name="previous"
-                                            class="btn btn-dark previous action-button-previous float-end me-1"
-                                            value="Previous">Previous</button>
                                     </div>
                                 </fieldset>
                             </form>
