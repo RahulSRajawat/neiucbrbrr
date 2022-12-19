@@ -427,7 +427,7 @@
         </div>
     </div>
 @endsection
-@section('scripts')
+{{-- @section('scripts')
     <script>
         var path = window.location.pathname;
         var page = path.split("/").pop(); 
@@ -450,4 +450,4 @@
             })
         });
     </script>
-@endsection
+@endsection --}}
