@@ -16,14 +16,34 @@ class LoanController extends Controller
         return view("loan.index");
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    
+    public function personal()
     {
-        //
+        return view("loan.personal");
+    }
+    public function business()
+    {
+        return view("loan.business");
+    }
+    public function gold()
+    {
+        return view("loan.gold");
+    }
+    public function home_salary_employed()
+    {
+        return view("loan.home_salary_employed");
+    }
+    public function home_self_employed()
+    {
+        return view("loan.home_self_employed");
+    }
+    public function property_salary_employed()
+    {
+        return view("loan.property_salary_employed");
+    }
+    public function property_self_employed()
+    {
+        return view("loan.property_self_employed");
     }
 
     /**
@@ -33,51 +53,6 @@ class LoanController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
     {
         //
     }

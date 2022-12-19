@@ -119,6 +119,13 @@ Route::group(["prefix" => "retailer", "middleware" => ["isRetailer", "auth", "Pr
     // Cart End
     Route::group(["prefix"=>"loan"],function(){
         Route::get('view', [LoanController::class,'index'])->name("loan.view");
+        Route::get('personal', [LoanController::class,'personal'])->name("loan.personal");
+        Route::get('business', [LoanController::class,'business'])->name("loan.business");
+        Route::get('gold', [LoanController::class,'gold'])->name("loan.gold");
+        Route::get('home-salary-employee', [LoanController::class,'home_salary_employed'])->name("loan.home-salary-employee");
+        Route::get('home-self-employee', [LoanController::class,'home_self_employed'])->name("loan.home-self-employee");
+        Route::get('property-salary-employee', [LoanController::class,'property_salary_employed'])->name("loan.property-salary-employee");
+        Route::get('property-self-employee', [LoanController::class,'property_self_employed'])->name("loan.property-self-employee");
     });
 });
 Route::group(["prefix" => "employee", "middleware" => ["isEmployee", "auth", "PreventBackHistory"]], function () {

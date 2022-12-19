@@ -4,7 +4,7 @@
     <div class="conatiner-fluid content-inner mt-n5 py-0">
         <div>
             <div class="row">
-                <div class="col-sm-12 col-lg-6">
+                <div class="col-sm-12 col-lg-8">
                     <div class="card responsive">
                         <div class="card-header justify-content-between">
                             <div class="header-title">
@@ -29,7 +29,7 @@
                                             </div>
                                         </td>
                                         <td>
-                                            <div><button type="button" class="btn btn-soft-primary">Apply</button></div>
+                                            <div><a href="{{ route('loan.personal') }}" class="btn btn-soft-primary">Apply</a></div>
                                         </td>
                                     </tr>
                                     <tr>
@@ -40,7 +40,7 @@
                                             </div>
                                         </td>
                                         <td>
-                                            <div><button type="button" class="btn btn-soft-primary">Apply</button></div>
+                                            <div><a href="{{ route('loan.business') }}" class="btn btn-soft-primary">Apply</a></div>
                                         </td>
                                     </tr>
                                     <tr>
@@ -51,7 +51,7 @@
                                             </div>
                                         </td>
                                         <td>
-                                            <div><button type="button" class="btn btn-soft-primary">Apply</button></div>
+                                            <div><a href="{{ route('loan.gold') }}" class="btn btn-soft-primary">Apply</a></div>
                                         </td>
                                     </tr>
                                     <tr>
@@ -62,7 +62,7 @@
                                             </div>
                                         </td>
                                         <td>
-                                            <div><button type="button" class="btn btn-soft-primary">Apply</button></div>
+                                            <div><a href="{{ route('loan.home-salary-employee') }}" class="btn btn-soft-primary">Apply</a></div>
                                         </td>
                                     </tr>
                                     <tr>
@@ -73,7 +73,7 @@
                                             </div>
                                         </td>
                                         <td>
-                                            <div><button type="button" class="btn btn-soft-primary">Apply</button></div>
+                                            <div><a href="{{ route('loan.home-self-employee') }}" class="btn btn-soft-primary">Apply</a></div>
                                         </td>
                                     </tr>
                                     <tr>
@@ -84,7 +84,7 @@
                                             </div>
                                         </td>
                                         <td>
-                                            <div><button type="button" class="btn btn-soft-primary">Apply</button></div>
+                                            <div><a href="{{ route('loan.property-salary-employee') }}" class="btn btn-soft-primary">Apply</a></div>
                                         </td>
                                     </tr>
                                     <tr>
@@ -95,7 +95,7 @@
                                             </div>
                                         </td>
                                         <td>
-                                            <div><button type="button" class="btn btn-soft-primary">Apply</button></div>
+                                            <div><a href="{{ route('loan.property-self-employee') }}" class="btn btn-soft-primary">Apply</a></div>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -103,7 +103,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-12 col-lg-6">
+                <div class="col-sm-12 col-lg-4">
                     <div class="card">
                         <div class="card-header d-flex align-items-center justify-content-between pb-4">
                             <div class="card-body p-0">
