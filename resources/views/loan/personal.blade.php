@@ -16,7 +16,7 @@
                                 <ul id="top-tab-list" class="p-0 row list-inline">
                                     <li class="mb-2 col-lg-3 col-md-6 text-start active" id="account">
                                         <a href="javascript:void();">
-                                            <div class="iq-icon me-3">
+                                            <div class="iq-icon me-2">
                                                 <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" height="20"
                                                     width="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -28,7 +28,7 @@
                                     </li>
                                     <li id="personal" class="mb-2 col-lg-3 col-md-6 text-start">
                                         <a href="javascript:void();">
-                                            <div class="iq-icon me-3">
+                                            <div class="iq-icon me-2">
                                                 <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" height="20"
                                                     width="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -40,7 +40,7 @@
                                     </li>
                                     <li id="payment" class="mb-2 col-lg-3 col-md-6 text-start">
                                         <a href="javascript:void();">
-                                            <div class="iq-icon me-3">
+                                            <div class="iq-icon me-2">
                                                 <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" height="20"
                                                     width="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -54,7 +54,7 @@
                                     </li>
                                     <li id="upload-document" class="mb-2 col-lg-3 col-md-6 text-start">
                                         <a href="javascript:void();">
-                                            <div class="iq-icon me-3">
+                                            <div class="iq-icon me-2">
                                                 <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" height="20"
                                                     width="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -68,7 +68,7 @@
                                     </li>
                                     <li id="confirm" class="mb-2 col-lg-3 col-md-6 text-start">
                                         <a href="javascript:void();">
-                                            <div class="iq-icon me-3">
+                                            <div class="iq-icon me-2">
                                                 <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" height="20"
                                                     width="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
