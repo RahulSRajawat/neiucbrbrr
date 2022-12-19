@@ -6,6 +6,7 @@ use App\Http\Controllers\CartsController;
 use App\Http\Controllers\DistributorController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\LoanController;
 use App\Http\Controllers\LoginHistoryController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\RetailerController;
@@ -116,6 +117,9 @@ Route::group(["prefix" => "retailer", "middleware" => ["isRetailer", "auth", "Pr
     Route::get("invoice", [InvoiceController::class, 'index'])->name("invoice.index");
     Route::get("invoice-view/{invoice_number}", [InvoiceController::class, 'invoice_view'])->name("invoice.view");
     // Cart End
+    Route::group(["prefix"=>"loan"],function(){
+        Route::get('view', [LoanController::class,'index'])->name("loan.view");
+    });
 });
 Route::group(["prefix" => "employee", "middleware" => ["isEmployee", "auth", "PreventBackHistory"]], function () {
     Route::get("dashboard", [EmployeeController::class, 'index'])->name("employee.dashboard");
