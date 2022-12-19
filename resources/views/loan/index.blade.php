@@ -11,7 +11,7 @@
                                 <h4 class="card-title">Loan Application Form</h4>
                             </div>
                         </div>
-                        <table id="basic-table" class="table table-responsive" role="grid">
+                        <table id="datatable" class="table table-striped table_style">
                             <thead>
                                 <tr>
                                     <th>S.No.</th>
