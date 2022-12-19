@@ -52,7 +52,7 @@
                                             <span class="dark-wizard">Work Details</span>
                                         </a>
                                     </li>
-                                    <li id="payment" class="mb-2 col-lg-3 col-md-6 text-start">
+                                    <li id="upload-document" class="mb-2 col-lg-3 col-md-6 text-start">
                                         <a href="javascript:void();">
                                             <div class="iq-icon me-3">
                                                 <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" height="20"
