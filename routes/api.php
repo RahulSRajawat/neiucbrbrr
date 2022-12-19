@@ -18,7 +18,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::group(['prefix' => 'v1'],function(){
-    Route::any('/payscallback',[CallbackController::class,'index']);
+    Route::any('/payscallback',[CallbackController::class]);
     Route::post('/cart-store',[CartsController::class,'store'])->name('add-to-cart');
 });
 
