@@ -53,7 +53,20 @@ class LoanController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {   
+        if($request->loan_type =="") {
+            return json_encode(array("res"=>"danger","msg"=>"Loan Type Is Requried !"));
+            exit();
+        }
+        switch ($request->loan_type) {
+            case 'value':
+                # code...
+                break;
+            
+            default:
+                # code...
+                break;
+        }
+        return json_encode(array("res"=>"success","loan_type"=>$request->loan_type));
     }
 }

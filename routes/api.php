@@ -1,6 +1,7 @@
 <?php
 use App\Http\Controllers\CallbackController;
 use App\Http\Controllers\CartsController;
+use App\Http\Controllers\LoanController;
 use App\Models\Carts;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -20,6 +21,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::group(['prefix' => 'v1'],function(){
     Route::any('/payscallback',[CallbackController::class]);
     Route::post('/cart-store',[CartsController::class,'store'])->name('add-to-cart');
+    Route::post('/loan-store',[LoanController::class,'store'])->name('loan.store');
 });
 
 //Route::post('/v1/payscallback', 'PaymentController@Data'); // receives payment status
