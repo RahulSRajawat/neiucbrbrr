@@ -19,6 +19,8 @@ use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CashfreePaymentController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -155,3 +157,15 @@ Route::get("/demo", [BillPaymentController::class, 'demo']);
 Route::get("/matm", [BillPaymentController::class, 'matm']);
 Route::get("/moneytransfer", [BillPaymentController::class, 'moneytransfer']);
 Route::get("/payment-request", [BillPaymentController::class, 'paymentrequest']);
+
+
+//cashfree payment Gatway
+
+Route::get('cashfree/payments/create', [CashfreePaymentController::class, 'create'])->name('callback');
+Route::post('cashfree/payments/store', [CashfreePaymentController::class, 'store'])->name('store');
+Route::any('cashfree/payments/success', [CashfreePaymentController::class, 'success'])->name('success');
+
+
+Route::get('/qrcode', function () {
+    return QrCode::size(200)->generate('rahulsingh');
+});
