@@ -165,7 +165,9 @@ Route::get('cashfree/payments/create', [CashfreePaymentController::class, 'creat
 Route::post('cashfree/payments/store', [CashfreePaymentController::class, 'store'])->name('store');
 Route::any('cashfree/payments/success', [CashfreePaymentController::class, 'success'])->name('success');
 
-
+//qr-code genrate
 Route::get('/qrcode', function () {
     return QrCode::size(200)->generate('rahulsingh');
 });
+
+// 
