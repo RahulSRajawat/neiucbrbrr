@@ -178,9 +178,9 @@
     <script src="{{ asset('slick/slick.js') }}" type="text/javascript" charset="utf-8"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script>
-        // $(document).ready(function() {
-        //     $('select').select2();
-        // });
+        $(document).ready(function() {
+            $('select').select2();
+        });
         toastr.options = {
             "closeButton": false,
             "debug": false,

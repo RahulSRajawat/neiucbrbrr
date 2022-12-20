@@ -44,6 +44,9 @@ Route::get("callback-data",function(){
     ];
      Mail::to('jepecox303@bitvoo.com')->send(new CallBackMail($testMailData));
 });
+Route::get('/phpinfo',function(){
+    phpinfo();
+});
 Route::get('/test', function () {
     // Bank List Data
     // $service = 'aeps/banklist/index';

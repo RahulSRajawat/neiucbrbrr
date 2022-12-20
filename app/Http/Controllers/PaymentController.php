@@ -1,20 +1,4 @@
-
-
-public function getStatus(Request $request)
-    {
-        $paymentMethod          = $request->paymentMethod;
-        $amount                 = $request->amount;
-        $providerCode           = $request->provider;
-        $customerName           = $request->customerName;
-        $customerEmail          = $request->customerEmail;
-        $paymentDescription     = $request->paymentDescription;
-        $paymentStatus          = $request->paaymentStatus;
-        $transactionReference   = $request->transactionReference;
-
-        // update my record based on the paymentStatus
-    }
-
-    <?php
+<?php
 
 namespace App\Http\Controllers;
 
@@ -27,13 +11,6 @@ class CallbackController extends Controller
 {
     public function __construct()
     {
-        parent::__construct();
-        $this->load->model(array('AdminModel', 'AepsModel', 'CommissionSlotModel', 'UserTypeModel', 'AadharPayModel'));
-        $this->load->library(array('AEPS', 'PWAEPS'));
-        $this->load->helper('url');
-        $this->load->library('email');
-        date_default_timezone_set("Asia/Kolkata");
-        $this->load->database();
     }
     public function index()
     {
@@ -56,7 +33,7 @@ class CallbackController extends Controller
                         "message" => $message
                     )
                 );
-                $db->query('update set column status 1')->where();
+                
                 break;
             case 'RECHARGE_FAILURE':
                 # code...

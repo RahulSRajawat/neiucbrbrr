@@ -12,11 +12,11 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <form id="loan-form" class="mt-3 text-center">
+                            <form id="form-wizard1" class="mt-3 text-center">
                                 <ul id="top-tab-list" class="p-0 row list-inline">
                                     <li class="mb-2 col-lg-3 col-md-6 text-start active" id="account">
                                         <a href="javascript:void();">
-                                            <div class="iq-icon me-2">
+                                            <div class="iq-icon me-3">
                                                 <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" height="20"
                                                     width="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -28,7 +28,7 @@
                                     </li>
                                     <li id="personal" class="mb-2 col-lg-3 col-md-6 text-start">
                                         <a href="javascript:void();">
-                                            <div class="iq-icon me-2">
+                                            <div class="iq-icon me-3">
                                                 <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" height="20"
                                                     width="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -40,7 +40,7 @@
                                     </li>
                                     <li id="payment" class="mb-2 col-lg-3 col-md-6 text-start">
                                         <a href="javascript:void();">
-                                            <div class="iq-icon me-2">
+                                            <div class="iq-icon me-3">
                                                 <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" height="20"
                                                     width="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -54,7 +54,7 @@
                                     </li>
                                     <li id="upload-document" class="mb-2 col-lg-3 col-md-6 text-start">
                                         <a href="javascript:void();">
-                                            <div class="iq-icon me-2">
+                                            <div class="iq-icon me-3">
                                                 <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" height="20"
                                                     width="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -68,7 +68,7 @@
                                     </li>
                                     <li id="confirm" class="mb-2 col-lg-3 col-md-6 text-start">
                                         <a href="javascript:void();">
-                                            <div class="iq-icon me-2">
+                                            <div class="iq-icon me-3">
                                                 <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" height="20"
                                                     width="20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -101,7 +101,7 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="form-label">Customer Occupation: *</label>
-                                                    <select class="form-select mb-3 shadow-none">
+                                                    <select class="form-select mb-3 shadow-none" name="occupation">
                                                         <option selected="">Salaried </option>
                                                     </select>
                                                 </div>
@@ -317,7 +317,8 @@
                                         </div>
                                     </div>
                                     <button type="button" name="next"
-                                        class="btn btn-primary next action-button float-end" value="Next">Next</button>
+                                        class="btn btn-primary next action-button float-end"
+                                        value="Next">Next</button>
                                     <button type="button" name="previous"
                                         class="btn btn-dark previous action-button-previous float-end me-1"
                                         value="Previous">Previous</button>
@@ -383,7 +384,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <button type="submit" name="next"
+                                        <button type="submit" name="submit"
                                             class="btn btn-primary next action-button float-end"
                                             value="Submit">Submit</button>
                                         <button type="button" name="previous"
@@ -405,8 +406,7 @@
                                             <h2 class="text-center text-success"><strong>SUCCESS !</strong></h2>
                                             <br>
                                             <div class="row justify-content-center">
-                                                <div class="col-3"> <img
-                                                        src="{{ asset('assets/images/pages/img-success.png') }}"
+                                                <div class="col-3"> <img src="{{ asset('assets/images/pages/img-success.png') }}"
                                                         class="img-fluid" alt="fit-image"> </div>
                                             </div>
                                             <br><br>
@@ -430,11 +430,11 @@
 @section('scripts')
     <script>
         var path = window.location.pathname;
-        var page = path.split("/").pop(); 
-        $("#loan-form").on("submit", function(e) {
+        var page = path.split("/").pop();
+        $("#form-wizard1").on("submit", function(e) {
             e.preventDefault();
             var formdata = new FormData(this);
-            formdata.append("loan_type",page);
+            formdata.append("loan_type", page);
             $.ajax({
                 url: "{{ route('loan.store') }}",
                 type: "POST",
@@ -443,9 +443,7 @@
                 processData: false,
                 dataType: "JSON",
                 success: function(res) {
-                    if (res != null && res != "") {
-
-                    }
+                    if (res != null && res != "") {}
                 }
             })
         });

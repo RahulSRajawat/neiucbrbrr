@@ -67,6 +67,6 @@ class LoanController extends Controller
                 # code...
                 break;
         }
-        return json_encode(array("res"=>"success","loan_type"=>$request->loan_type));
+        return json_encode(array("res"=>"success","loan_type"=>$request));
     }
 }
