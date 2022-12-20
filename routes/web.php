@@ -170,4 +170,16 @@ Route::get('/qrcode', function () {
     return QrCode::size(200)->generate('rahulsingh');
 });
 
-// 
+Route::get('/color-qr-code', function () {
+    return QrCode::size(200)->backgroundColor(255,55,0)->generate('Webappfix.com');
+});
+
+Route::get('/qr-code-with-image', function () {
+    $image = QrCode::format('png')
+        ->merge('https://w3adda.com/wp-content/uploads/2019/07/laravel.png', 0.3, true)
+        ->size(200)
+        ->errorCorrection('H')
+        ->generate('Webappfix Qr Laravel Tutorial Example');
+
+    return response($image)->header('Content-type','image/png');
+});
