@@ -139,42 +139,42 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="form-label">Customer Contact Number: *</label>
-                                                    <input type="text" class="form-control" name="lname"
+                                                    <input type="text" class="form-control" name="contact"
                                                         placeholder="Number" />
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="form-label">Customer Email Id: *</label>
-                                                    <input type="text" class="form-control" name="phno"
+                                                    <input type="text" class="form-control" name="email"
                                                         placeholder="Email Id" />
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="form-label">Customer Address: *</label>
-                                                    <input type="text" class="form-control" name="phno_2"
+                                                    <input type="text" class="form-control" name="address"
                                                         placeholder="Alternate Contact No." />
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="form-label">Pincode: *</label>
-                                                    <input type="text" class="form-control" name="phno"
+                                                    <input type="text" class="form-control" name="pincode"
                                                         placeholder="Pincode" />
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="form-label">State: *</label>
-                                                    <input type="text" class="form-control" name="phno"
+                                                    <input type="text" class="form-control" name="state"
                                                         placeholder="State" />
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="form-label">District: *</label>
-                                                    <input type="text" class="form-control" name="phno"
+                                                    <input type="text" class="form-control" name="district"
                                                         placeholder="District" />
                                                 </div>
                                             </div>
@@ -182,7 +182,7 @@
                                                 <div class="form-group">
                                                     <label class="form-label" for="pwd">Customer Marital
                                                         Status:</label>
-                                                    <select class="form-select mb-3 shadow-none">
+                                                    <select class="form-select mb-3 shadow-none" name="marital">
                                                         <option selected="">Select </option>
                                                         <option value="1">Single</option>
                                                         <option value="2">Married</option>
@@ -192,14 +192,14 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="form-label">Customer DOB: *</label>
-                                                    <input type="text" class="form-control" name="phno"
+                                                    <input type="text" class="form-control" name="dob"
                                                         placeholder="DOB" />
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="form-label">Customer Gender: *</label>
-                                                    <select class="form-select mb-3 shadow-none">
+                                                    <select class="form-select mb-3 shadow-none" name="gender">
                                                         <option selected="">Select </option>
                                                         <option value="1">Male</option>
                                                         <option value="2">Female</option>
@@ -210,14 +210,14 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="form-label">Children: *</label>
-                                                    <input type="number" class="form-control" name="phno"
+                                                    <input type="number" class="form-control" name="children"
                                                         placeholder="Children" />
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="form-label">Ownership of Home: *</label>
-                                                    <select class="form-select mb-3 shadow-none">
+                                                    <select class="form-select mb-3 shadow-none" name="owner_home">
                                                         <option selected="">Select </option>
                                                         <option value="1">Owned</option>
                                                         <option value="2">Rented</option>
@@ -227,14 +227,14 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="form-label">Duration of Staying : *</label>
-                                                    <input type="text" class="form-control" name="phno"
+                                                    <input type="text" class="form-control" name="duration"
                                                         placeholder="Duration" />
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="form-label">Agent Referal Id: *</label>
-                                                    <input type="text" class="form-control" name="phno"
+                                                    <input type="text" class="form-control" name="referal_id" readonly value="{{ Auth::id() }}"
                                                         placeholder="Id" />
                                                 </div>
                                             </div>
@@ -261,56 +261,56 @@
                                                 <div class="form-group">
                                                     <label class="form-label">Office Name/Company Name/Shop Name :
                                                         *</label>
-                                                    <input type="text" class="form-control" name="fname"
+                                                    <input type="text" class="form-control" name="office_fname"
                                                         placeholder="Name" />
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="form-label">Office Address: *</label>
-                                                    <input type="text" class="form-control" name="lname"
+                                                    <input type="text" class="form-control" name="office_address"
                                                         placeholder="Address" />
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="form-label">Office Pincode: *</label>
-                                                    <input type="text" class="form-control" name="phno"
+                                                    <input type="text" class="form-control" name="office_pincode"
                                                         placeholder="Pincode" />
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="form-label">Office State : *</label>
-                                                    <input type="text" class="form-control" name="phno_2"
+                                                    <input type="text" class="form-control" name="office_state"
                                                         placeholder="State" />
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="form-label">Office District : *</label>
-                                                    <input type="text" class="form-control" name="phno"
+                                                    <input type="text" class="form-control" name="office_district"
                                                         placeholder="District" />
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="form-label">Office Email Id: *</label>
-                                                    <input type="text" class="form-control" name="phno"
+                                                    <input type="text" class="form-control" name="office_email"
                                                         placeholder="Email" />
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="form-label">Experience in Currect Company: *</label>
-                                                    <input type="number" class="form-control" name="phno"
+                                                    <input type="number" class="form-control" name="office_current_experience"
                                                         placeholder="Experience in Year" />
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="form-label">Total work Experience: *</label>
-                                                    <input type="number" class="form-control" name="phno"
+                                                    <input type="number" class="form-control" name="office_total_experience"
                                                         placeholder="Total work Experience in Year" />
                                                 </div>
                                             </div>
@@ -337,49 +337,49 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="form-label">Aadhaar Card:</label>
-                                                    <input type="file" class="form-control" name="pic"
+                                                    <input type="file" class="form-control" name="image_aadhaar"
                                                         accept="image/*">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="form-label">PAN Card:</label>
-                                                    <input type="file" class="form-control" name="pic-2"
+                                                    <input type="file" class="form-control" name="image_pan"
                                                         accept="image/*">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="form-label">Passport Size Photo:</label>
-                                                    <input type="file" class="form-control" name="pic-3"
+                                                    <input type="file" class="form-control" name="image_size"
                                                         accept="image/*">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="form-label">Salary Slip (1st) Month:</label>
-                                                    <input type="file" class="form-control" name="pic-4"
+                                                    <input type="file" class="form-control" name="image_slip"
                                                         accept="image/*">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="form-label">Salary Slip (2nd) Month:</label>
-                                                    <input type="file" class="form-control" name="pic-5"
+                                                    <input type="file" class="form-control" name="image_slip_2"
                                                         accept="image/*">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="form-label">Salary Slip (3rd) Month:</label>
-                                                    <input type="file" class="form-control" name="pic-6"
+                                                    <input type="file" class="form-control" name="image_slip_3"
                                                         accept="image/*">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="form-label">Bank Statement:</label>
-                                                    <input type="file" class="form-control" name="pic-7"
+                                                    <input type="file" class="form-control" name="image_bank_statement"
                                                         accept="image/*">
                                                 </div>
                                             </div>
