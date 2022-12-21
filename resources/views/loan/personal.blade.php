@@ -192,7 +192,7 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label class="form-label">Customer DOB: *</label>
-                                                    <input type="text" class="form-control" name="dob"
+                                                    <input type="date" class="form-control" name="dob"
                                                         placeholder="DOB" />
                                                 </div>
                                             </div>
