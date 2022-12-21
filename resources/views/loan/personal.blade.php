@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Loans')
+@section('title', 'Personal Loan')
 @section('content')
     <div class="conatiner-fluid content-inner mt-n5 py-0">
         <div>
