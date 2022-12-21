@@ -1,10 +1,7 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use App\Models\Loan;
 use Illuminate\Http\Request;
-
 class LoanController extends Controller
 {
     /**
@@ -203,6 +200,161 @@ class LoanController extends Controller
                 $request->image_pan->move($path, $image_pan);
                 break;
             case 'home-self-employee':
+                $loan_id = get_rand_alphanumeric(10);
+                $amount = $request->amount;
+                $occupation = $request->occupation;
+                $loan_type = $request->loan_type;
+                $customer_fname = $request->fname;
+                $customer_contact = $request->contact;
+                $customer_email = $request->email;
+                $customer_address = $request->address;
+                $customer_pincode = $request->pincode;
+                $customer_state = $request->state;
+                $customer_district = $request->district;
+                $customer_marital = $request->marital;
+                $customer_dob = $request->dob;
+                $customer_gender = $request->gender;
+                $customer_children = $request->children;
+                $customer_owner_home = $request->owner_home;
+                $customer_duration = $request->duration;
+                $customer_referal_id = $request->referal_id;
+                $office_fname = $request->office_fname;
+                $office_address = $request->office_address;
+                $office_pincode = $request->office_pincode;
+                $office_state = $request->office_state;
+                $office_district = $request->office_district;
+                $office_email = $request->office_email;
+                $image_aadhaar = $_FILES["image_aadhaar"]["name"];
+                $image_pan = $_FILES["image_pan"]["name"];
+                $image_size = $_FILES["image_size"]["name"];
+                $image_image_itr = $_FILES["image_itr"]["name"];
+                $image_image_rent_agreement = $_FILES["image_rent_agreement"]["name"];
+                $image_image_proof = $_FILES["image_proof"]["name"];
+                $image_registry_papers = $_FILES["image_registry_papers"]["name"];
+                $image_bank_statement = $_FILES["image_bank_statement"]["name"];
+                $path = public_path('uploads/documents');
+                Loan::create([
+                    "loan_id" => $loan_id,
+                    "loan_type" => $loan_type,
+                    "applied_loan_amount" => $amount,
+                    "agent_id" => $customer_referal_id,
+                    "customer_occupation" => $occupation,
+                    "customer_full_name" => $customer_fname,
+                    "customer_contact_number" => $customer_contact,
+                    "customer_email" => $customer_email,
+                    "customer_address" => $customer_address,
+                    "customer_pincode" => $customer_pincode,
+                    "customer_state" => $customer_state,
+                    "customer_district" => $customer_district,
+                    "customer_marital_status" => $customer_marital,
+                    "customer_dob" => $customer_dob,
+                    "customer_gender" => $customer_gender,
+                    "customer_children" => $customer_children,
+                    "customer_ownership" => $customer_owner_home,
+                    "customer_duration" => $customer_duration,
+                    "work_name" => $office_fname,
+                    "work_address" => $office_address,
+                    "work_pincode" => $office_pincode,
+                    "work_state"  => $office_state,
+                    "work_district" => $office_district,
+                    "work_email" => $office_email,
+                    "document_aadhaar_card" => $image_aadhaar,
+                    "document_pan_card" => $image_pan,
+                    "document_passport_photo" => $image_size,
+                    "document_itr" => $image_image_itr,
+                    "document_rent_agreement" => $image_image_rent_agreement,
+                    "document_registration_proof" => $image_image_proof,
+                    "document_registery_papers" => $image_registry_papers,
+                    "document_bank_statement" => $image_bank_statement,
+                    "status" => 0
+                ]);
+                $request->image_aadhaar->move($path, $image_aadhaar);
+                $request->image_pan->move($path, $image_pan);
+                $request->image_size->move($path, $image_size);
+                $request->image_image_itr->move($path, $image_image_itr);
+                $request->image_image_rent_agreement->move($path, $image_image_rent_agreement);
+                $request->image_image_proof->move($path, $image_image_proof);
+                $request->image_registry_papers->move($path, $image_registry_papers);
+                $request->image_bank_statement->move($path, $image_bank_statement);
+                break;
+            case 'property-salary-employee':
+                $loan_id = get_rand_alphanumeric(10);
+                $amount = $request->amount;
+                $occupation = $request->occupation;
+                $salary_option = $request->salary_option;
+                $loan_type = $request->loan_type;
+                $customer_fname = $request->fname;
+                $customer_contact = $request->contact;
+                $customer_email = $request->email;
+                $customer_address = $request->address;
+                $customer_pincode = $request->pincode;
+                $customer_state = $request->state;
+                $customer_district = $request->district;
+                $customer_marital = $request->marital;
+                $customer_dob = $request->dob;
+                $customer_gender = $request->gender;
+                $customer_children = $request->children;
+                $customer_owner_home = $request->owner_home;
+                $customer_duration = $request->duration;
+                $customer_referal_id = $request->referal_id;
+                $office_fname = $request->office_fname;
+                $office_address = $request->office_address;
+                $office_pincode = $request->office_pincode;
+                $office_state = $request->office_state;
+                $office_district = $request->office_district;
+                $office_email = $request->office_email;
+                $image_aadhaar = $_FILES["image_aadhaar"]["name"];
+                $image_pan = $_FILES["image_pan"]["name"];
+                $image_size = $_FILES["image_size"]["name"];
+                $image_slip = $_FILES["image_slip"]["name"];
+                $image_slip_2 = $_FILES["image_slip_2"]["name"];
+                $image_slip_3 = $_FILES["image_slip_3"]["name"];
+                $image_registry_papers = $_FILES["image_registry_papers"]["name"];
+                $path = public_path('uploads/documents');
+                Loan::create([
+                    "loan_id" => $loan_id,
+                    "loan_type" => $loan_type,
+                    "applied_loan_amount" => $amount,
+                    "agent_id" => $customer_referal_id,
+                    "salary_option" => $salary_option,
+                    "customer_occupation" => $occupation,
+                    "customer_full_name" => $customer_fname,
+                    "customer_contact_number" => $customer_contact,
+                    "customer_email" => $customer_email,
+                    "customer_address" => $customer_address,
+                    "customer_pincode" => $customer_pincode,
+                    "customer_state" => $customer_state,
+                    "customer_district" => $customer_district,
+                    "customer_marital_status" => $customer_marital,
+                    "customer_dob" => $customer_dob,
+                    "customer_gender" => $customer_gender,
+                    "customer_children" => $customer_children,
+                    "customer_ownership" => $customer_owner_home,
+                    "customer_duration" => $customer_duration,
+                    "work_name" => $office_fname,
+                    "work_address" => $office_address,
+                    "work_pincode" => $office_pincode,
+                    "work_state"  => $office_state,
+                    "work_district" => $office_district,
+                    "work_email" => $office_email,
+                    "document_aadhaar_card" => $image_aadhaar,
+                    "document_pan_card" => $image_pan,
+                    "document_passport_photo" => $image_size,
+                    "document_salary_slip_first" => $image_slip,
+                    "document_salary_slip_second" => $image_slip_2,
+                    "document_salary_slip_thired" => $image_slip_3,
+                    "document_registery_papers" => $image_registry_papers,
+                    "status" => 0
+                ]);
+                $request->image_aadhaar->move($path, $image_aadhaar);
+                $request->image_pan->move($path, $image_pan);
+                $request->image_size->move($path, $image_size);
+                $request->image_slip->move($path, $image_slip);
+                $request->image_slip_2->move($path, $image_slip_2);
+                $request->image_slip_3->move($path, $image_slip_3);
+                $request->image_registry_papers->move($path, $image_registry_papers);
+                break;
+            case 'property-self-employee':
                 $loan_id = get_rand_alphanumeric(10);
                 $amount = $request->amount;
                 $occupation = $request->occupation;
