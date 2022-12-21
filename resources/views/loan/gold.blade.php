@@ -328,31 +328,17 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-4">
+                                            <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="form-label">Aadhaar Card:</label>
                                                     <input type="file" class="form-control" name="image_aadhaar"
                                                         accept="image/*">
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="form-label">PAN Card:</label>
                                                     <input type="file" class="form-control" name="image_pan"
-                                                        accept="image/*">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label class="form-label">Passport Size Photo:</label>
-                                                    <input type="file" class="form-control" name="image_size"
-                                                        accept="image/*">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label class="form-label">Salary Slip (1st) Month:</label>
-                                                    <input type="file" class="form-control" name="image_slip"
                                                         accept="image/*">
                                                 </div>
                                             </div>

@@ -135,7 +135,7 @@ class LoanController extends Controller
                 $request->image_slip_3->move($path, $image_slip_3);
                 $request->image_bank_statement->move($path, $image_bank_statement);
                 break;
-            case 'personal':
+            case 'gold':
                 $loan_id = get_rand_alphanumeric(10);
                 $amount = $request->amount;
                 $occupation = $request->occupation;
@@ -154,6 +154,8 @@ class LoanController extends Controller
                 $customer_children = $request->children;
                 $customer_owner_home = $request->owner_home;
                 $customer_duration = $request->duration;
+                $customer_gold_karat = $request->gold_karat;
+                $customer_gold_weight = $request->gold_weight;
                 $customer_referal_id = $request->referal_id;
                 $office_fname = $request->office_fname;
                 $office_address = $request->office_address;
@@ -161,15 +163,8 @@ class LoanController extends Controller
                 $office_state = $request->office_state;
                 $office_district = $request->office_district;
                 $office_email = $request->office_email;
-                $office_current_experience = $request->office_current_experience;
-                $office_total_experience = $request->office_total_experience;
                 $image_aadhaar = $_FILES["image_aadhaar"]["name"];
                 $image_pan = $_FILES["image_pan"]["name"];
-                $image_size = $_FILES["image_size"]["name"];
-                $image_slip = $_FILES["image_slip"]["name"];
-                $image_slip_2 = $_FILES["image_slip_2"]["name"];
-                $image_slip_3 = $_FILES["image_slip_3"]["name"];
-                $image_bank_statement = $_FILES["image_bank_statement"]["name"];
                 $path = public_path('uploads/documents');
                 Loan::create([
                     "loan_id" => $loan_id,
@@ -191,30 +186,20 @@ class LoanController extends Controller
                     "customer_children" => $customer_children,
                     "customer_ownership" => $customer_owner_home,
                     "customer_duration" => $customer_duration,
+                    "customer_gold_karat" => $customer_gold_karat,
+                    "customer_gold_weight" => $customer_gold_weight,
                     "work_name" => $office_fname,
                     "work_address" => $office_address,
                     "work_pincode" => $office_pincode,
                     "work_state"  => $office_state,
                     "work_district" => $office_district,
                     "work_email" => $office_email,
-                    "work_current_experience" => $office_current_experience,
-                    "work_total_experience" => $office_total_experience,
                     "document_aadhaar_card" => $image_aadhaar,
                     "document_pan_card" => $image_pan,
-                    "document_passport_photo" => $image_size,
-                    "document_salary_slip_first" => $image_slip,
-                    "document_salary_slip_second" => $image_slip_2,
-                    "document_salary_slip_thired" => $image_slip_3,
-                    "document_bank_statement" => $image_bank_statement,
                     "status" => 0
                 ]);
                 $request->image_aadhaar->move($path, $image_aadhaar);
                 $request->image_pan->move($path, $image_pan);
-                $request->image_size->move($path, $image_size);
-                $request->image_slip->move($path, $image_slip);
-                $request->image_slip_2->move($path, $image_slip_2);
-                $request->image_slip_3->move($path, $image_slip_3);
-                $request->image_bank_statement->move($path, $image_bank_statement);
                 break;
             default:
                 # code...
