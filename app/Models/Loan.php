@@ -30,6 +30,7 @@ class Loan extends Model
         "customer_gold_weight",
         "work_name",
         "work_address",
+        "work_ownership",
         "work_pincode",
         "work_state",
         "work_district",

@@ -39,6 +39,7 @@ class CreateLoans extends Migration
             $table->string("customer_gold_weight")->nullable(); 
             $table->string("work_name")->nullable(); 
             $table->string("work_address")->nullable(); 
+            $table->string("work_ownership")->nullable(); 
             $table->string("work_pincode")->nullable(); 
             $table->string("work_state")->nullable(); 
             $table->string("work_district")->nullable(); 
