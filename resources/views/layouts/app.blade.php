@@ -199,6 +199,7 @@
             "hideMethod": "fadeOut"
         }
     </script>
+    <script src="{{ asset('assets/js/api.js') }}" defer></script>
     @yield('scripts')
 </body>
 

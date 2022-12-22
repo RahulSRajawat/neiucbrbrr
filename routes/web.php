@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CashfreePaymentController;
-
+use App\Http\Controllers\RechargeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,17 +32,16 @@ use App\Http\Controllers\CashfreePaymentController;
 |
 */
 Route::get('migrate', function () {
-
-	/* php artisan migrate */
+    /* php artisan migrate */
     Artisan::call('migrate');
     dd("Done");
 });
-Route::get("callback-data",function(){
+Route::get("callback-data", function () {
     $testMailData = [
         'title' => 'Test Email From AllPHPTricks.com',
         'body' => 'This is the body of test email.'
     ];
-     Mail::to('jepecox303@bitvoo.com')->send(new CallBackMail($testMailData));
+    Mail::to('jepecox303@bitvoo.com')->send(new CallBackMail($testMailData));
 });
 Route::get('/test', function () {
     // Bank List Data
@@ -50,7 +49,6 @@ Route::get('/test', function () {
     // $res = json_decode(ApiController::post($service));
     // echo "<pre>";
     // print_r($res);
-
     // ONBOARDING POST DATA
     // $service = 'onboard/onboardnew/getonboardurl';
     // $callback_url = env('APP_URL')."api/v1/payscallback";
@@ -65,7 +63,7 @@ Route::get('/test', function () {
     // $res = json_decode(ApiController::post($service,$body));
     // echo "<pre>";
     // print_r($res);
-     // DORECHARGE POST DATA
+    // DORECHARGE POST DATA
     //  $service = 'recharge/recharge/dorecharge';
     //  $callback_url = env('APP_URL')."api/v1/payscallback";
     //  $body = array(
@@ -124,15 +122,19 @@ Route::group(["prefix" => "retailer", "middleware" => ["isRetailer", "auth", "Pr
     Route::get("invoice", [InvoiceController::class, 'index'])->name("invoice.index");
     Route::get("invoice-view/{invoice_number}", [InvoiceController::class, 'invoice_view'])->name("invoice.view");
     // Cart End
-    Route::group(["prefix"=>"loan"],function(){
-        Route::get('view', [LoanController::class,'index'])->name("loan.view");
-        Route::get('personal', [LoanController::class,'personal'])->name("loan.personal");
-        Route::get('business', [LoanController::class,'business'])->name("loan.business");
-        Route::get('gold', [LoanController::class,'gold'])->name("loan.gold");
-        Route::get('home-salary-employee', [LoanController::class,'home_salary_employed'])->name("loan.home-salary-employee");
-        Route::get('home-self-employee', [LoanController::class,'home_self_employed'])->name("loan.home-self-employee");
-        Route::get('property-salary-employee', [LoanController::class,'property_salary_employed'])->name("loan.property-salary-employee");
-        Route::get('property-self-employee', [LoanController::class,'property_self_employed'])->name("loan.property-self-employee");
+    Route::group(["prefix" => "loan"], function () {
+        Route::get('view', [LoanController::class, 'index'])->name("loan.view");
+        Route::get('personal', [LoanController::class, 'personal'])->name("loan.personal");
+        Route::get('business', [LoanController::class, 'business'])->name("loan.business");
+        Route::get('gold', [LoanController::class, 'gold'])->name("loan.gold");
+        Route::get('home-salary-employee', [LoanController::class, 'home_salary_employed'])->name("loan.home-salary-employee");
+        Route::get('home-self-employee', [LoanController::class, 'home_self_employed'])->name("loan.home-self-employee");
+        Route::get('property-salary-employee', [LoanController::class, 'property_salary_employed'])->name("loan.property-salary-employee");
+        Route::get('property-self-employee', [LoanController::class, 'property_self_employed'])->name("loan.property-self-employee");
+    });
+    Route::group(["prefix" => "recharge"], function () {
+        Route::get('prepaid', [RechargeController::class, 'prepaid'])->name("recharge.prepaid");
+        Route::get('dth', [RechargeController::class, 'dth'])->name("recharge.dth");
     });
 });
 Route::group(["prefix" => "employee", "middleware" => ["isEmployee", "auth", "PreventBackHistory"]], function () {
@@ -162,29 +164,22 @@ Route::get("/demo", [BillPaymentController::class, 'demo']);
 Route::get("/matm", [BillPaymentController::class, 'matm']);
 Route::get("/moneytransfer", [BillPaymentController::class, 'moneytransfer']);
 Route::get("/payment-request", [BillPaymentController::class, 'paymentrequest']);
-
-
 //cashfree payment Gatway
-
 Route::get('cashfree/payments/create', [CashfreePaymentController::class, 'create'])->name('callback');
 Route::post('cashfree/payments/store', [CashfreePaymentController::class, 'store'])->name('store');
 Route::any('cashfree/payments/success', [CashfreePaymentController::class, 'success'])->name('success');
-
 //qr-code genrate
 Route::get('/qrcode', function () {
     return QrCode::size(200)->generate('rahulsingh');
 });
-
 Route::get('/color-qr-code', function () {
-    return QrCode::size(200)->backgroundColor(255,55,0)->generate('Webappfix.com');
+    return QrCode::size(200)->backgroundColor(255, 55, 0)->generate('Webappfix.com');
 });
-
 Route::get('/qr-code-with-image', function () {
     $image = QrCode::format('png')
         ->merge('https://w3adda.com/wp-content/uploads/2019/07/laravel.png', 0.3, true)
         ->size(200)
         ->errorCorrection('H')
         ->generate('Webappfix Qr Laravel Tutorial Example');
-
-    return response($image)->header('Content-type','image/png');
+    return response($image)->header('Content-type', 'image/png');
 });
