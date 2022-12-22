@@ -175,8 +175,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
-        App\Providers\SettingServiceProvider::class,
+       App\Providers\SettingServiceProvider::class,
         SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class
+
     ],
 
     /*
