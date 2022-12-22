@@ -6,5 +6,8 @@ class Setting extends Model
 {
     protected $guarded = [];
     protected $table = 'settings';
+    protected $fillable = [
+        'website_name'
+    ];
     use HasFactory;
 }

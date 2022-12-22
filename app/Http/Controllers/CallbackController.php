@@ -1,56 +1,29 @@
 <?php
 namespace App\Http\Controllers;
-
 use App\Mail\CallBackMail;
 use Illuminate\Http\Request;
-// use DB;
-// use App\User;
-// use App\Models;
-// use App\Models\Callbackdata;
+use DB;
+use App\User;
+use App\Models;
+use App\Models\Callbackdata;
 use Illuminate\Support\Facades\Mail;
-
 class CallbackController extends Controller
 {
-  public function __construct()
-  {
-    // // parent::__construct();
-    // $this->load->model(array('AdminModel', 'AepsModel', 'CommissionSlotModel', 'UserTypeModel', 'AadharPayModel'));
-    // $this->load->library(array('AEPS', 'PWAEPS'));
-    // $this->load->helper('url');
-    // $this->load->library('email');
-    // date_default_timezone_set("Asia/Kolkata");
-    //  $this->load->database();
-  }
-  // public function make()
-  // {
-
-  //   $testMailData = [
-  //     'title' => 'Test Email From AllPHPTricks.com',
-  //     'body' => 'This is the body of test email.',
-  //     dd('Success! Email has been sent successfully.');
-  // ];
-  // dd($testMailData);
-
-  // }
-  public function index(Request $request)
+  public function index()
   {
     $data = file_get_contents('php://input');
     $decode_data = json_decode($data);
-    //$Game = 'Raja King';
-    $testMailData = [
-      'title' => 'Test Email From AllPHPTricks.om',
-      'body' => $decode_data,
-  ];
-  // dd($testMailData);
-    Mail::to('rahulsinghrajawat16@gmail.com')->send(new CallBackMail($testMailData));
-
-    dd('Success! Email has been sent successfully.');
-
-    // Callbackdata::create([
-    //   "callback_status" => "Testing",
-    //   "callback_data" => $data,
-    //   "callback_event" => $decode_data->event,
-    // ]);
+    Callbackdata::create([
+      "callback_status" => "Testing",
+      "callback_data" => $data,
+      "callback_event" => "event",
+    ]);
+    return  json_encode(
+      array(
+        "status" => 200,
+        "message" => "Transaction completed successfully"
+      )
+    );
     // return redirect()->route("home");
     // switch ($decode_data->event) {
     //     case 'RECHARGE_SUCCESS':
@@ -98,6 +71,4 @@ class CallbackController extends Controller
     //         break;
     // }
   }
-
-
 }

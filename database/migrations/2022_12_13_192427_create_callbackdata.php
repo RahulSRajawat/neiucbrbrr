@@ -15,9 +15,9 @@ class CreateCallbackdata extends Migration
     {
         Schema::create('callbackdata', function (Blueprint $table) {
             $table->id();
-            $table->string("callback_status")->comment("Failed, SUccess"); 
-            $table->longText("callback_data");
-            $table->string("callback_event");
+            $table->string("callback_status")->comment("Failed, Success"); 
+            $table->longText("callback_data")->nullable();
+            $table->string("callback_event")->nullable();
             $table->timestamps();
         });
     }

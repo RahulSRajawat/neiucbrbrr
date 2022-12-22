@@ -44,9 +44,6 @@ Route::get("callback-data",function(){
     ];
      Mail::to('jepecox303@bitvoo.com')->send(new CallBackMail($testMailData));
 });
-Route::get('/phpinfo',function(){
-    phpinfo();
-});
 Route::get('/test', function () {
     // Bank List Data
     // $service = 'aeps/banklist/index';
@@ -68,18 +65,23 @@ Route::get('/test', function () {
     // $res = json_decode(ApiController::post($service,$body));
     // echo "<pre>";
     // print_r($res);
-     // ONBOARDING POST DATA
-     $service = 'recharge/recharge/dorecharge';
-     $callback_url = env('APP_URL')."api/v1/payscallback";
-     $body = array(
-             "operator"=>11,
-             "canumber"=>7000802198,
-             "amount"=>"10",
-             "referenceid"=>2725285815
-             );
-     $res = json_decode(ApiController::post($service,$body));
-     echo "<pre>";
-     print_r($res);
+     // DORECHARGE POST DATA
+    //  $service = 'recharge/recharge/dorecharge';
+    //  $callback_url = env('APP_URL')."api/v1/payscallback";
+    //  $body = array(
+    //          "operator"=>11,
+    //          "canumber"=>7000802198,
+    //          "amount"=>"10",
+    //          "referenceid"=>2728935815
+    //          );
+    //  $res = json_decode(ApiController::post($service,$body));
+    //  echo "<pre>";
+    //  print_r($res);
+    // Operator List Data
+    $service = 'recharge/recharge/getoperator';
+    $res = json_decode(ApiController::post($service));
+    echo "<pre>";
+    print_r($res);
 });
 Route::get('/', function () {
     return view("auth.login");
