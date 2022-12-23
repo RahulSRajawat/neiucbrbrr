@@ -69,7 +69,7 @@ class RechargeController extends Controller
         $res = json_decode(ApiController::post($service, $body));
         if($res->status){
             $user->withdraw($request->amount);
-            return response(["status"=>"success","msg"=>$res->message]);
+            return response(["status"=>"success","msg"=>$res->message,"refid"=>$res->refid,"ackno"=>$res->ackno]);
         }else{
             return response(["status"=>"warning","msg"=>$res->message]);
 

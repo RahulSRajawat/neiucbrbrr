@@ -7,7 +7,6 @@
             overflow: hidden;
             background-color: #f8f8f8;
         }
-
         /* Style the buttons that are used to open the tab content */
         .tab button {
             background-color: inherit;
@@ -20,13 +19,11 @@
             color: #999;
             font-size: 14px;
         }
-
         /* Create an active/current tablink class */
         .tab button.active {
             border-bottom: 2px solid #1e6ad8;
             color: black;
         }
-
         /* Style the tab content */
         .tabcontent {
             display: none;
@@ -182,8 +179,8 @@
                                                 <td class="re_td_head">Price</td>
                                                 <td class="re_td_head">Description</td>
                                             </tr>
-                                            </thead>
-                                            <tbody></tbody>
+                                        </thead>
+                                        <tbody></tbody>
                                     </table>
                                 </div>
                             </div>
@@ -193,9 +190,40 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="recharge-prepaid-modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table id="rechage-data" class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th class="re_td_head">Reference Id</th>
+                                    <th class="re_td_head">Ackno </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary btn-sm" onclick="printDiv('rechage-data')">Print</button>
+                    <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 @section('scripts')
     <script>
+        function printDiv(divName) {
+            var printContents = document.getElementById(divName).innerHTML;
+            var originalContents = document.body.innerHTML;
+            document.body.innerHTML = printContents;
+            window.print();
+            document.body.innerHTML = originalContents;
+        }
         $("select[name='operator']").on("change", function() {
             $.ajax({
                 url: "{{ route('recharge-plan.plan-list') }}",
@@ -236,15 +264,19 @@
                             const special_recharge_element = special_recharge[index];
                             special_recharge_html += '<tr>';
                             special_recharge_html += '<td>' + special_recharge_element.circle + '</td>';
-                            special_recharge_html += '<td>' + special_recharge_element.plan_category_name + '</td>';
+                            special_recharge_html += '<td>' + special_recharge_element
+                                .plan_category_name + '</td>';
                             special_recharge_html += '<td>' + special_recharge_element.data + '</td>';
-                            special_recharge_html += '<td>' + special_recharge_element.validity + '</td>';
+                            special_recharge_html += '<td>' + special_recharge_element.validity +
+                                '</td>';
                             special_recharge_html +=
                                 '<td><button class="btn btn-outline-info rounded-pill" style="padding: 3px 13px;" onclick="changeamount(' +
-                                special_recharge_element.price + ')">₹ ' + special_recharge_element.price +
+                                special_recharge_element.price + ')">₹ ' + special_recharge_element
+                                .price +
                                 '</button></td>';
-                            special_recharge_html += '<td>' + special_recharge_element.description + '</td>';
-                            special_recharge_html += '</tr>'; 
+                            special_recharge_html += '<td>' + special_recharge_element.description +
+                                '</td>';
+                            special_recharge_html += '</tr>';
                         }
                         $("#special_recharge table tbody").html(special_recharge_html);
                     }
@@ -262,7 +294,7 @@
                                 top_up_element.price + ')">₹ ' + top_up_element.price +
                                 '</button></td>';
                             top_up_html += '<td>' + top_up_element.description + '</td>';
-                            top_up_html += '</tr>'; 
+                            top_up_html += '</tr>';
                         }
                         $("#top_up table tbody").html(top_up_html);
                     }
@@ -272,15 +304,17 @@
                             const data_structure_element = data_structure[index];
                             data_structure_html += '<tr>';
                             data_structure_html += '<td>' + data_structure_element.circle + '</td>';
-                            data_structure_html += '<td>' + data_structure_element.plan_category_name + '</td>';
+                            data_structure_html += '<td>' + data_structure_element.plan_category_name +
+                                '</td>';
                             data_structure_html += '<td>' + data_structure_element.data + '</td>';
                             data_structure_html += '<td>' + data_structure_element.validity + '</td>';
                             data_structure_html +=
                                 '<td><button class="btn btn-outline-info rounded-pill" style="padding: 3px 13px;" onclick="changeamount(' +
                                 data_structure_element.price + ')">₹ ' + data_structure_element.price +
                                 '</button></td>';
-                            data_structure_html += '<td>' + data_structure_element.description + '</td>';
-                            data_structure_html += '</tr>'; 
+                            data_structure_html += '<td>' + data_structure_element.description +
+                                '</td>';
+                            data_structure_html += '</tr>';
                         }
                         $("#data_structure table tbody").html(data_structure_html);
                     }
@@ -290,7 +324,8 @@
                             const full_talktime_element = full_talktime[index];
                             full_talktime_html += '<tr>';
                             full_talktime_html += '<td>' + full_talktime_element.circle + '</td>';
-                            full_talktime_html += '<td>' + full_talktime_element.plan_category_name + '</td>';
+                            full_talktime_html += '<td>' + full_talktime_element.plan_category_name +
+                                '</td>';
                             full_talktime_html += '<td>' + full_talktime_element.data + '</td>';
                             full_talktime_html += '<td>' + full_talktime_element.validity + '</td>';
                             full_talktime_html +=
@@ -298,14 +333,13 @@
                                 full_talktime_element.price + ')">₹ ' + full_talktime_element.price +
                                 '</button></td>';
                             full_talktime_html += '<td>' + full_talktime_element.description + '</td>';
-                            full_talktime_html += '</tr>'; 
+                            full_talktime_html += '</tr>';
                         }
                         $("#full_talktime table tbody").html(full_talktime_html);
                     }
                 }
             })
         });
-
         function lists(evt, listdata) {
             // Declare all variables
             var i, tabcontent, tablinks;
@@ -323,7 +357,7 @@
             document.getElementById(listdata).style.display = "block";
             evt.currentTarget.className += " active";
         }
-        function changeamount(amount){
+        function changeamount(amount) {
             $("#amount").val(amount);
         }
     </script>

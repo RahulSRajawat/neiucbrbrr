@@ -22,9 +22,13 @@ $("#add").on("submit", function (e) {
             } else {
                 toastr[result["status"]](result["msg"]);
             }
-            if (result['res'] == "success") {
+            if (result['status'] == "success") {
                 $("#add").trigger("reset");
                 $("html, body").animate({ scrollTop: 0 }, 1000);
+                if(result["refid"] !="" && result["ackno"] !=""){
+                    $("#recharge-prepaid-modal").modal("show");
+                    $("#recharge-prepaid-modal table tbody").html("<tr><td>"+result["refid"]+"</td><td>"+result["ackno"]+"</td></tr>")
+                }
             }
         }
     });
