@@ -67,22 +67,22 @@ Route::get('/test', function () {
     // echo "<pre>";
     // print_r($res);
     // DORECHARGE POST DATA
-    //  $service = 'recharge/recharge/dorecharge';
+     $service = 'recharge/recharge/dorecharge';
     //  $callback_url = env('APP_URL')."api/v1/payscallback";
-    //  $body = array(
-    //          "operator"=>11,
-    //          "canumber"=>7000802198,
-    //          "amount"=>"10",
-    //          "referenceid"=>2728935815
-    //          );
-    //  $res = json_decode(ApiController::post($service,$body));
-    //  echo "<pre>";
-    //  print_r($res);
+     $body = array(
+             "operator"=>11,
+             "canumber"=>7000802198,
+             "amount"=>"10",
+             "referenceid"=>rand(9999999999,1000000000)
+             );
+     $res = json_decode(ApiController::post($service,$body));
+     echo "<pre>";
+     print_r($res);
     // Operator List Data
-    $service = 'recharge/recharge/getoperator';
-    $res = json_decode(ApiController::post($service));
-    echo "<pre>";
-    print_r($res);
+    // $service = 'recharge/recharge/getoperator';
+    // $res = json_decode(ApiController::post($service));
+    // echo "<pre>";
+    // print_r($res);
 });
 Route::get('/', function () {
     return view("auth.login");
