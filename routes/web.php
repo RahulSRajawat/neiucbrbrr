@@ -1,4 +1,5 @@
 <?php
+
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ApiController;
 use App\Http\Controllers\BillPaymentController;
@@ -21,6 +22,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CashfreePaymentController;
 use App\Http\Controllers\RechargeController;
+use App\Http\Controllers\RechargePlanController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,6 +33,7 @@ use App\Http\Controllers\RechargeController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('migrate', function () {
     /* php artisan migrate */
     Artisan::call('migrate');
@@ -107,6 +110,14 @@ Route::group(["prefix" => "admin", "middleware" => ["isAdmin", "auth", "PreventB
     Route::get("user-invoice-view/{invoice_number}", [InvoiceController::class, 'invoice_view'])->name("user-invoice.view");
     Route::post("invoice-status", [InvoiceController::class, 'invoice_status'])->name("invoice.status");
     // Invoice End
+    // Recharge Plan Start
+    Route::group(["prefix" => "recharge-plan"], function () {
+        Route::get('destroy/{id}', [RechargePlanController::class, 'destroy'])->name("recharge-plan.destroy");
+        Route::get('index', [RechargePlanController::class, 'index'])->name("recharge-plan.index");
+        Route::get('create', [RechargePlanController::class, 'create'])->name("recharge-plan.create");
+        Route::post('store', [RechargePlanController::class, 'store'])->name("recharge-plan.store");
+    });
+    // Recharge Plan End
 });
 Route::group(["prefix" => "retailer", "middleware" => ["isRetailer", "auth", "PreventBackHistory"]], function () {
     Route::get("dashboard", [RetailerController::class, 'index'])->name("retailer.dashboard");
