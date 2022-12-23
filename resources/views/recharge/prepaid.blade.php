@@ -53,11 +53,11 @@
                                 @csrf
                                 <div class="form-group">
                                     <label class="form-label" for="email">Prepaid Mobile Number:</label>
-                                    <input type="number"  class="form-control" id="mnumber" name="phone">
+                                    <input type="number" class="form-control" id="mnumber" name="phone">
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label" for="pwd">Operator:</label>
-                                    <select class="form-select mb-3 shadow-none" name="operator" >
+                                    <select class="form-select mb-3 shadow-none" name="operator">
                                         <option selected="" value="">Select Your Operator</option>
                                         @foreach ($operators as $operator)
                                             @if ($operator->category == 'Prepaid')
@@ -77,7 +77,7 @@
                                 </div> --}}
                                 <div class="form-group">
                                     <label class="form-label" for="pwd">Recharge Amount:</label>
-                                    <input type="number"  class="form-control" id="pwd" name="amount">
+                                    <input type="number" class="form-control" id="amount" name="amount">
                                 </div>
                                 <button type="submit"
                                     class="btn btn-outline-primary rounded-pill btn-sbmit">Submit</button>
@@ -102,128 +102,88 @@
                                 <button class="tablinks" onclick="lists(event, 'full_talktime')">Full Talktime</button>
                             </div>
                             <!-- Tab content -->
-                            <div id="popular " class="tabcontent" style="display: block;">
+                            <div id="popular" class="tabcontent" style="display: block;">
                                 <div class="table-responsive">
                                     <table width="100%" class="table table-striped">
-                                        <tr>
-                                            <td class="re_td_head">Circle</td>
-                                            <td class="re_td_head">Plan type</td>
-                                            <td class="re_td_head">Data</td>
-                                            <td class="re_td_head">Validity</td>
-                                            <td class="re_td_head">Price</td>
-                                            <td class="re_td_head">Description</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="re_td_data">Madhya</td>
-                                            <td class="re_td_data">Topup</td>
-                                            <td class="re_td_data">NA</td>
-                                            <td class="re_td_data">NA</td>
-                                            <td class="re_td_data">
-                                                <button class="btn btn-outline-info rounded-pill"
-                                                    style="padding: 3px 13px;">Rs. 10</button>
-                                            </td>
-                                            <td class="re_td_data">Unlimited voice calls+U</td>
-                                        </tr>
+                                        <thead>
+                                            <tr>
+                                                <td class="re_td_head">Circle</td>
+                                                <td class="re_td_head">Plan type</td>
+                                                <td class="re_td_head">Data</td>
+                                                <td class="re_td_head">Validity</td>
+                                                <td class="re_td_head">Price</td>
+                                                <td class="re_td_head">Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
                                     </table>
                                 </div>
                             </div>
                             <div id="special_recharge" class="tabcontent">
                                 <div class="table-responsive">
                                     <table width="100%" class="table table-striped">
-                                        <tr>
-                                            <td class="re_td_head">Circle</td>
-                                            <td class="re_td_head">Plan type</td>
-                                            <td class="re_td_head">Data</td>
-                                            <td class="re_td_head">Validity</td>
-                                            <td class="re_td_head">Price</td>
-                                            <td class="re_td_head">Description</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="re_td_data">Madhya</td>
-                                            <td class="re_td_data">Topup</td>
-                                            <td class="re_td_data">NA</td>
-                                            <td class="re_td_data">NA</td>
-                                            <td class="re_td_data">
-                                                <button class="btn btn-outline-info" style="padding: 3px 13px;">Rs.
-                                                    23</button>
-                                            </td>
-                                            <td class="re_td_data">Unlimited voice calls+U</td>
-                                        </tr>
+                                        <thead>
+                                            <tr>
+                                                <td class="re_td_head">Circle</td>
+                                                <td class="re_td_head">Plan type</td>
+                                                <td class="re_td_head">Data</td>
+                                                <td class="re_td_head">Validity</td>
+                                                <td class="re_td_head">Price</td>
+                                                <td class="re_td_head">Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
                                     </table>
                                 </div>
                             </div>
                             <div id="top_up" class="tabcontent">
                                 <div class="table-responsive">
                                     <table width="100%" class="table table-striped">
-                                        <tr>
-                                            <td class="re_td_head">Circle</td>
-                                            <td class="re_td_head">Plan type</td>
-                                            <td class="re_td_head">Data</td>
-                                            <td class="re_td_head">Validity</td>
-                                            <td class="re_td_head">Price</td>
-                                            <td class="re_td_head">Description</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="re_td_data">Madhya</td>
-                                            <td class="re_td_data">Topup</td>
-                                            <td class="re_td_data">NA</td>
-                                            <td class="re_td_data">NA</td>
-                                            <td class="re_td_data">
-                                                <button class="btn btn-outline-info" style="padding: 3px 13px;">Rs.
-                                                    65</button>
-                                            </td>
-                                            <td class="re_td_data">Unlimited voice calls+U</td>
-                                        </tr>
+                                        <thead>
+                                            <tr>
+                                                <td class="re_td_head">Circle</td>
+                                                <td class="re_td_head">Plan type</td>
+                                                <td class="re_td_head">Data</td>
+                                                <td class="re_td_head">Validity</td>
+                                                <td class="re_td_head">Price</td>
+                                                <td class="re_td_head">Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
                                     </table>
                                 </div>
                             </div>
                             <div id="data_structure" class="tabcontent">
                                 <div class="table-responsive">
                                     <table width="100%" class="table table-striped">
-                                        <tr>
-                                            <td class="re_td_head">Circle</td>
-                                            <td class="re_td_head">Plan type</td>
-                                            <td class="re_td_head">Data</td>
-                                            <td class="re_td_head">Validity</td>
-                                            <td class="re_td_head">Price</td>
-                                            <td class="re_td_head">Description</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="re_td_data">Madhya</td>
-                                            <td class="re_td_data">Topup</td>
-                                            <td class="re_td_data">NA</td>
-                                            <td class="re_td_data">NA</td>
-                                            <td class="re_td_data">
-                                                <button class="btn btn-outline-info" style="padding: 3px 13px;">Rs.
-                                                    69</button>
-                                            </td>
-                                            <td class="re_td_data">Unlimited voice calls+U</td>
-                                        </tr>
+                                        <thead>
+                                            <tr>
+                                                <td class="re_td_head">Circle</td>
+                                                <td class="re_td_head">Plan type</td>
+                                                <td class="re_td_head">Data</td>
+                                                <td class="re_td_head">Validity</td>
+                                                <td class="re_td_head">Price</td>
+                                                <td class="re_td_head">Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
                                     </table>
                                 </div>
                             </div>
                             <div id="full_talktime" class="tabcontent">
                                 <div class="table-responsive">
                                     <table width="100%" class="table table-striped">
-                                        <tr>
-                                            <td class="re_td_head">Circle</td>
-                                            <td class="re_td_head">Plan type</td>
-                                            <td class="re_td_head">Data</td>
-                                            <td class="re_td_head">Validity</td>
-                                            <td class="re_td_head">Price</td>
-                                            <td class="re_td_head">Description</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="re_td_data">Madhya</td>
-                                            <td class="re_td_data">Topup</td>
-                                            <td class="re_td_data">NA</td>
-                                            <td class="re_td_data">NA</td>
-                                            <td class="re_td_data">
-                                                <button class="btn btn-outline-info" style="padding: 3px 13px;">Rs.
-                                                    95</button>
-                                            </td>
-                                            <td class="re_td_data">Unlimited voice calls+U</td>
-                                        </tr>
+                                        <thead>
+                                            <tr>
+                                                <td class="re_td_head">Circle</td>
+                                                <td class="re_td_head">Plan type</td>
+                                                <td class="re_td_head">Data</td>
+                                                <td class="re_td_head">Validity</td>
+                                                <td class="re_td_head">Price</td>
+                                                <td class="re_td_head">Description</td>
+                                            </tr>
+                                            </thead>
+                                            <tbody></tbody>
                                     </table>
                                 </div>
                             </div>
@@ -236,6 +196,116 @@
 @endsection
 @section('scripts')
     <script>
+        $("select[name='operator']").on("change", function() {
+            $.ajax({
+                url: "{{ route('recharge-plan.plan-list') }}",
+                type: "POST",
+                data: {
+                    id: $(this).val()
+                },
+                dataType: "JSON",
+                success: function(result) {
+                    var data = result.data;
+                    var popular = data.populars;
+                    var special_recharge = data.special_recharge;
+                    var top_up = data.top_up;
+                    var data_structure = data.internet_data;
+                    var full_talktime = data.full_talktime;
+                    if (popular.length > 0) {
+                        var popular_html = "";
+                        for (let index = 0; index < popular.length; index++) {
+                            const popular_element = popular[index];
+                            console.log(popular_element.circle);
+                            popular_html += '<tr>';
+                            popular_html += '<td>' + popular_element.circle + '</td>';
+                            popular_html += '<td>' + popular_element.plan_category_name + '</td>';
+                            popular_html += '<td>' + popular_element.data + '</td>';
+                            popular_html += '<td>' + popular_element.validity + '</td>';
+                            popular_html +=
+                                '<td><button class="btn btn-outline-info rounded-pill" style="padding: 3px 13px;" onclick="changeamount(' +
+                                popular_element.price + ')">₹ ' + popular_element.price +
+                                '</button></td>';
+                            popular_html += '<td>' + popular_element.description + '</td>';
+                            popular_html += '</tr>';
+                        }
+                        $("#popular table tbody").html(popular_html);
+                    }
+                    if (special_recharge.length > 0) {
+                        var special_recharge_html = "";
+                        for (let index = 0; index < special_recharge.length; index++) {
+                            const special_recharge_element = special_recharge[index];
+                            special_recharge_html += '<tr>';
+                            special_recharge_html += '<td>' + special_recharge_element.circle + '</td>';
+                            special_recharge_html += '<td>' + special_recharge_element.plan_category_name + '</td>';
+                            special_recharge_html += '<td>' + special_recharge_element.data + '</td>';
+                            special_recharge_html += '<td>' + special_recharge_element.validity + '</td>';
+                            special_recharge_html +=
+                                '<td><button class="btn btn-outline-info rounded-pill" style="padding: 3px 13px;" onclick="changeamount(' +
+                                special_recharge_element.price + ')">₹ ' + special_recharge_element.price +
+                                '</button></td>';
+                            special_recharge_html += '<td>' + special_recharge_element.description + '</td>';
+                            special_recharge_html += '</tr>'; 
+                        }
+                        $("#special_recharge table tbody").html(special_recharge_html);
+                    }
+                    if (top_up.length > 0) {
+                        var top_up_html = "";
+                        for (let index = 0; index < top_up.length; index++) {
+                            const top_up_element = top_up[index];
+                            top_up_html += '<tr>';
+                            top_up_html += '<td>' + top_up_element.circle + '</td>';
+                            top_up_html += '<td>' + top_up_element.plan_category_name + '</td>';
+                            top_up_html += '<td>' + top_up_element.data + '</td>';
+                            top_up_html += '<td>' + top_up_element.validity + '</td>';
+                            top_up_html +=
+                                '<td><button class="btn btn-outline-info rounded-pill" style="padding: 3px 13px;" onclick="changeamount(' +
+                                top_up_element.price + ')">₹ ' + top_up_element.price +
+                                '</button></td>';
+                            top_up_html += '<td>' + top_up_element.description + '</td>';
+                            top_up_html += '</tr>'; 
+                        }
+                        $("#top_up table tbody").html(top_up_html);
+                    }
+                    if (data_structure.length > 0) {
+                        var data_structure_html = "";
+                        for (let index = 0; index < data_structure.length; index++) {
+                            const data_structure_element = data_structure[index];
+                            data_structure_html += '<tr>';
+                            data_structure_html += '<td>' + data_structure_element.circle + '</td>';
+                            data_structure_html += '<td>' + data_structure_element.plan_category_name + '</td>';
+                            data_structure_html += '<td>' + data_structure_element.data + '</td>';
+                            data_structure_html += '<td>' + data_structure_element.validity + '</td>';
+                            data_structure_html +=
+                                '<td><button class="btn btn-outline-info rounded-pill" style="padding: 3px 13px;" onclick="changeamount(' +
+                                data_structure_element.price + ')">₹ ' + data_structure_element.price +
+                                '</button></td>';
+                            data_structure_html += '<td>' + data_structure_element.description + '</td>';
+                            data_structure_html += '</tr>'; 
+                        }
+                        $("#data_structure table tbody").html(data_structure_html);
+                    }
+                    if (full_talktime.length > 0) {
+                        var full_talktime_html = "";
+                        for (let index = 0; index < full_talktime.length; index++) {
+                            const full_talktime_element = full_talktime[index];
+                            full_talktime_html += '<tr>';
+                            full_talktime_html += '<td>' + full_talktime_element.circle + '</td>';
+                            full_talktime_html += '<td>' + full_talktime_element.plan_category_name + '</td>';
+                            full_talktime_html += '<td>' + full_talktime_element.data + '</td>';
+                            full_talktime_html += '<td>' + full_talktime_element.validity + '</td>';
+                            full_talktime_html +=
+                                '<td><button class="btn btn-outline-info rounded-pill" style="padding: 3px 13px;" onclick="changeamount(' +
+                                full_talktime_element.price + ')">₹ ' + full_talktime_element.price +
+                                '</button></td>';
+                            full_talktime_html += '<td>' + full_talktime_element.description + '</td>';
+                            full_talktime_html += '</tr>'; 
+                        }
+                        $("#full_talktime table tbody").html(full_talktime_html);
+                    }
+                }
+            })
+        });
+
         function lists(evt, listdata) {
             // Declare all variables
             var i, tabcontent, tablinks;
@@ -252,6 +322,9 @@
             // Show the current tab, and add an "active" class to the button that opened the tab
             document.getElementById(listdata).style.display = "block";
             evt.currentTarget.className += " active";
+        }
+        function changeamount(amount){
+            $("#amount").val(amount);
         }
     </script>
 @endsection

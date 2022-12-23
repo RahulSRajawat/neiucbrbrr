@@ -4,6 +4,7 @@ use App\Http\Controllers\CallbackController;
 use App\Http\Controllers\CartsController;
 use App\Http\Controllers\LoanController;
 use App\Http\Controllers\RechargeController;
+use App\Http\Controllers\RechargePlanController;
 use App\Models\Carts;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -27,6 +28,9 @@ Route::group(['prefix' => 'v1'], function () {
     Route::post('/loan-store', [LoanController::class, 'store'])->name('loan.store');
     Route::group(['prefix' => 'recharge'], function () {
         Route::post('prepaid-store', [RechargeController::class, 'prepaid_store'])->name("recharge.prepaid-store"); 
+    });
+    Route::group(['prefix' => 'recharge-plan'], function () {
+        Route::post('plan-list', [RechargePlanController::class, 'plan_list'])->name("recharge-plan.plan-list"); 
     });
 });
 

@@ -11,7 +11,7 @@ class RechargePlanController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
+    {
         $operators = array();
         $service = 'recharge/recharge/getoperator';
         $res = json_decode(ApiController::post($service));
@@ -19,7 +19,7 @@ class RechargePlanController extends Controller
             $operators = $res->data;
         }
         $rechargeplans = RechargePlan::all();
-        return view('recharge-plan.index', compact('rechargeplans','operators'));
+        return view('recharge-plan.index', compact('rechargeplans', 'operators'));
     }
     /**
      * Show the form for creating a new resource.
@@ -106,5 +106,41 @@ class RechargePlanController extends Controller
     {
         RechargePlan::destroy($id);
         return redirect()->route("recharge-plan.index")->with('status', 'Recharge Plan Delete Successfully!');
+    }
+    public function plan_list(Request $request)
+    {
+        $populars = RechargePlan::where("operator_id", $request->id)
+            ->where("plan_category_id", 1)
+            ->join('recharge_plan_categories','rechargpe_plan.plan_category_id','=','recharge_plan_categories.id')
+            ->select('rechargpe_plan.*','recharge_plan_categories.plan_category_name')
+            ->get();
+        $special_recharge = RechargePlan::where("operator_id", $request->id)
+            ->where("plan_category_id", 2)
+            ->join('recharge_plan_categories','rechargpe_plan.plan_category_id','=','recharge_plan_categories.id')
+            ->select('rechargpe_plan.*','recharge_plan_categories.plan_category_name')
+            ->get();
+        $top_up = RechargePlan::where("operator_id", $request->id)
+            ->where("plan_category_id", 3)
+            ->join('recharge_plan_categories','rechargpe_plan.plan_category_id','=','recharge_plan_categories.id')
+            ->select('rechargpe_plan.*','recharge_plan_categories.plan_category_name')
+            ->get();
+        $internet_data = RechargePlan::where("operator_id", $request->id)
+            ->where("plan_category_id", 4)
+            ->join('recharge_plan_categories','rechargpe_plan.plan_category_id','=','recharge_plan_categories.id')
+            ->select('rechargpe_plan.*','recharge_plan_categories.plan_category_name')
+            ->get();
+        $full_talktime = RechargePlan::where("operator_id", $request->id)
+            ->where("plan_category_id", 5)
+            ->join('recharge_plan_categories','rechargpe_plan.plan_category_id','=','recharge_plan_categories.id')  
+            ->select('rechargpe_plan.*','recharge_plan_categories.plan_category_name')
+            ->get();
+        $data = array(
+            "populars" => $populars,
+            "special_recharge" => $special_recharge,
+            "top_up" => $top_up,
+            "internet_data" => $internet_data,
+            "full_talktime" => $full_talktime
+        );
+        return response(["data" => $data]);
     }
 }
