@@ -13,6 +13,9 @@
                                     <li>Mobile :</li>
                                     <li>Month Limit :</li>
                                 </ul>
+                                @php
+                                    dd($details);
+                                @endphp
                                 <ul class="details">
                                     <li><i class="fa fa-user"></i> RAHUL RAHUL</li>
                                     <li><i class="fa fa-mobile"></i> 9755678764</li>
