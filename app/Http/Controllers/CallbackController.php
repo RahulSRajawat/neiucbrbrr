@@ -23,12 +23,12 @@ class CallbackController extends Controller
     // $status = $decode_data->status;
     // $operatorid = $decode_data->operatorid;
     // $message = $decode_data->message;
-    // Callbackdata::create([
-    //   "callback_status" => $decode_data->status,
-    //   "callback_data" => $data,
-    //   "callback_event" => $decode_data->event,
-    // ]);
     if (!empty($decode_data)) {
+      Callbackdata::create([
+        "callback_status" => $decode_data->status,
+        "callback_data" => $data,
+        "callback_event" => $decode_data->event,
+      ]);
       switch ($decode_data->event) {
         case 'RECHARGE_SUCCESS':
           $reponse_array =  array("status" => 200, "message" => "Transaction completed successfully");
@@ -37,7 +37,7 @@ class CallbackController extends Controller
           $reponse_array =  array("status" => 400, "message" => "Transaction failed");
           break;
         default:
-          $reponse_array =  array("status" => 400, "message" => "Transaction failed");
+          $reponse_array =  array("status" => 200, "message" => "Transaction completed successfully");
           break;
       }
     }

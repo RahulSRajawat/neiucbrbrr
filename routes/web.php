@@ -56,8 +56,8 @@ Route::get('/test', function () {
     $service = 'onboard/onboardnew/getonboardurl';
     $callback_url = env('APP_URL')."api/v1/payscallback";
     $body = array(
-            "merchantcode"=>"19",
-            "mobile"=>"8818820004",
+            "merchantcode"=>"58",
+            "mobile"=>"8125820004",
             "is_new"=>"0",
             "email"=>"vevbyervrv23@diratu.com",
             "firm"=>"MYMONEYSKING",
