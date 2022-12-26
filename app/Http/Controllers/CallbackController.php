@@ -1,5 +1,7 @@
 <?php
+
 namespace App\Http\Controllers;
+
 use App\Mail\CallBackMail;
 use Illuminate\Http\Request;
 use DB;
@@ -8,11 +10,12 @@ use App\Models;
 use App\Models\Callbackdata;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
+
 class CallbackController extends Controller
 {
   public function index()
   {
-    $reponse_array = array("status" => 200, "message" => "Transaction completed successfully");
+    $reponse_array = array("status" => 400, "message" => "Transaction failed");
     $data = file_get_contents('php://input');
     $decode_data = json_decode($data);
     // $param = $decode_data->param;
@@ -37,8 +40,11 @@ class CallbackController extends Controller
         case 'RECHARGE_FAILURE':
           $reponse_array =  array("status" => 400, "message" => "Transaction failed");
           break;
+        case 'MERCHANT_ONBOARDING':
+          $reponse_array =  array("status" => 400, "message" => "Transaction failed");
+          break; 
         default:
-          $reponse_array =  array("status" => 200, "message" => "Transaction completed successfully","auth_id"=>Auth::id());
+          $reponse_array =  array("status" => 200, "message" => "Transaction completed successfully");
           break;
       }
     }
