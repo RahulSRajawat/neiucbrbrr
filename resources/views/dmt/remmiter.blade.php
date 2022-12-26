@@ -24,8 +24,8 @@
                             <form method="post" action="{{ route('recharge-plan.store') }}">
                                 @csrf
                                 <div class="row">
-                                    <div class="col-md-6 mb-3">
-                                        <label for="">Validity</label>
+                                    <div class="col-md-12 mb-3">
+                                        <label for="">Customer Mobile Number</label>
                                         <input type="text" class="form-control" placeholder="Enter 10 digit customer mobile number" name="mobile" pattern="[0-9]{10,10}" title="10 Digit Mobile Number" maxlength="10">
                                     </div>
                                     <div class="col-md-12 mb-3">
