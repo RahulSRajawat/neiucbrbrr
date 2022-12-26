@@ -11,7 +11,7 @@ class CallbackController extends Controller
 {
   public function index()
   {
-    $reponse_array = array("status" => 400, "message" => "Transaction failed");
+    $reponse_array = array("status" => 200, "message" => "Transaction completed successfully");
     $data = file_get_contents('php://input');
     $decode_data = json_decode($data);
     // $param = $decode_data->param;
