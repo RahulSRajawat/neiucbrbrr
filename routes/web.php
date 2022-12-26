@@ -176,12 +176,10 @@ Route::get("/indurance", [BillPaymentController::class, 'indurance']);
 Route::get("/fastag", [BillPaymentController::class, 'fastag']);
 Route::get("/loan", [BillPaymentController::class, 'loan']);
 Route::get("/recharge", [BillPaymentController::class, 'recharge']);
-Route::get("/dth", [BillPaymentController::class, 'dth']);
 Route::get("/creditcard", [BillPaymentController::class, 'creditcard']);
 Route::get("/rentpayment", [BillPaymentController::class, 'rentpayment']);
 Route::get("/demo", [BillPaymentController::class, 'demo']);
 Route::get("/matm", [BillPaymentController::class, 'matm']);
-Route::get("/moneytransfer", [BillPaymentController::class, 'moneytransfer']);
 Route::get("/payment-request", [BillPaymentController::class, 'paymentrequest']);
 //cashfree payment Gatway
 Route::get('cashfree/payments/create', [CashfreePaymentController::class, 'create'])->name('callback');
