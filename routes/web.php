@@ -24,6 +24,7 @@ use App\Http\Controllers\CashfreePaymentController;
 use App\Http\Controllers\DmtController;
 use App\Http\Controllers\RechargeController;
 use App\Http\Controllers\RechargePlanController;
+use App\Http\Controllers\LocationController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -91,6 +92,9 @@ Route::get('/', function () {
 Route::group(["middleware" => "PreventBackHistory"], function () {
     Auth::routes();
 });
+
+Route::get('near-places', [LocationController::class, 'index']);
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('complete-profile', [UserController::class, 'complete_user'])->name('complete-user.complete');
 Route::group(["prefix" => "admin", "middleware" => ["isAdmin", "auth", "PreventBackHistory"]], function () {
@@ -157,7 +161,7 @@ Route::group(["prefix" => "retailer", "middleware" => ["isRetailer", "auth", "Pr
         Route::get('money-transfer', [DmtController::class, 'create'])->name("dmt.remmiter");
         Route::get('money-transfer-confirm', [DmtController::class, 'confirm'])->name("dmt.confirm");
     });
-    // DMT End  
+    // DMT End
 });
 Route::group(["prefix" => "employee", "middleware" => ["isEmployee", "auth", "PreventBackHistory"]], function () {
     Route::get("dashboard", [EmployeeController::class, 'index'])->name("employee.dashboard");
