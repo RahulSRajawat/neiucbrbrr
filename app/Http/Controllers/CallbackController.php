@@ -41,7 +41,7 @@ class CallbackController extends Controller
           $reponse_array =  array("status" => 400, "message" => "Transaction failed");
           break;
         case 'MERCHANT_ONBOARDING':
-          $reponse_array =  array("status" => 400, "message" => "Transaction failed");
+          $reponse_array =  array("status" => 200, "message" => "Transaction completed successfully");
           break; 
         default:
           $reponse_array =  array("status" => 200, "message" => "Transaction completed successfully");
