@@ -38,7 +38,7 @@
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" aria-current="page" href="{{route('dmt.remmiter')}}" >
+        <a class="nav-link" aria-current="page" href="{{route('dmt.remmiter')}}">
             <i class="icon">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
                     <path d="M8 3h10l-1 2h-3.262c.48.578.84 1.262 1.051 2H18l-1 2h-2a5.562 5.562 0 0 1-4.8 4.96V14h-.7l6 7H13l-6-7v-2h2.5c1.762 0 3.219-1.3 3.46-3H7l1-2h4.66A3.495 3.495 0 0 0 9.5 5H7Zm0 0" fill="currentColor" />
