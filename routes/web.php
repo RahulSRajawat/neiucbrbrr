@@ -53,31 +53,31 @@ Route::get('/test', function () {
     // echo "<pre>";
     // print_r($res);
     // ONBOARDING POST DATA
-    $service = 'onboard/onboardnew/getonboardurl';
-    $callback_url = env('APP_URL')."api/v1/payscallback";
-    $body = array(
-            "merchantcode"=>"23",
-            "mobile"=>"8125920004",
-            "is_new"=>"0",
-            "email"=>"vevbyervrv23@diratu.com",
-            "firm"=>"MYMONEYSKING",
-            "callback"=>$callback_url
-            );
-    $res = json_decode(ApiController::post($service,$body));
-    echo "<pre>";
-    print_r($res);
+    // $service = 'onboard/onboardnew/getonboardurl';
+    // $callback_url = env('APP_URL')."api/v1/payscallback";
+    // $body = array(
+    //         "merchantcode"=>"23",
+    //         "mobile"=>"8125920004",
+    //         "is_new"=>"0",
+    //         "email"=>"vevbyervrv23@diratu.com",
+    //         "firm"=>"MYMONEYSKING",
+    //         "callback"=>$callback_url
+    //         );
+    // $res = json_decode(ApiController::post($service,$body));
+    // echo "<pre>";
+    // print_r($res);
     // DORECHARGE POST DATA
-    //  $service = 'recharge/recharge/dorecharge';
-    // //  $callback_url = env('APP_URL')."api/v1/payscallback";
-    //  $body = array(
-    //          "operator"=>11,
-    //          "canumber"=>7000802198,
-    //          "amount"=>"10",
-    //          "referenceid"=>rand(9999999999,1000000000)
-    //          );
-    //  $res = json_decode(ApiController::post($service,$body));
-    //  echo "<pre>";
-    //  print_r($res);
+     $service = 'recharge/recharge/dorecharge';
+    //  $callback_url = env('APP_URL')."api/v1/payscallback";
+     $body = array(
+             "operator"=>11,
+             "canumber"=>7000802198,
+             "amount"=>"10",
+             "referenceid"=>rand(9999999999,1000000000)
+             );
+     $res = json_decode(ApiController::post($service,$body));
+     echo "<pre>";
+     print_r($res);
     // Operator List Data
     // $service = 'recharge/Recharge_v2/getoperator';
     // $res = json_decode(ApiController::post($service));
