@@ -21,7 +21,7 @@
                                     </ul>
                                 </div>
                             @endif
-                            <form method="post" action="{{ route('rdmt.query-remmiter') }}">
+                            <form method="post" action="{{ route('dmt.query-remmiter') }}">
                                 @csrf
                                 <div class="row">
                                     <div class="col-md-12 mb-3">
