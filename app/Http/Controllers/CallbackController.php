@@ -6,6 +6,7 @@ use DB;
 use App\User;
 use App\Models;
 use App\Models\Callbackdata;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 class CallbackController extends Controller
 {
@@ -37,7 +38,7 @@ class CallbackController extends Controller
           $reponse_array =  array("status" => 400, "message" => "Transaction failed");
           break;
         default:
-          $reponse_array =  array("status" => 200, "message" => "Transaction completed successfully");
+          $reponse_array =  array("status" => 200, "message" => "Transaction completed successfully","auth_id"=>Auth::id());
           break;
       }
     }
