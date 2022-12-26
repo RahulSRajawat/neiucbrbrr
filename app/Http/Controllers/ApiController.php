@@ -7,7 +7,7 @@ use GuzzleHttp\Client as GuzzleClient;
 class ApiController extends Controller
 {
     // API POST FUNCTION
-    public function post($service, array $body = [])
+    public static function post($service, array $body = [])
     {
         $payload = array("timestamp" => strtotime(date("Y-m-d H:i:s")), "partnerId" => env("PAY_SPRINT_PARTNERID"), "reqid" => rand(9999999999, 1000000000), "iss" => "pay-sprint.readme.io");
         $key = env("PAY_SPRINT_JWT_TOKEN");
