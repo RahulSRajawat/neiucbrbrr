@@ -1,5 +1,7 @@
 <?php
+
 namespace App\Http\Controllers;
+
 use App\Mail\CallBackMail;
 use Illuminate\Http\Request;
 use DB;
@@ -7,6 +9,7 @@ use App\User;
 use App\Models;
 use App\Models\Callbackdata;
 use Illuminate\Support\Facades\Mail;
+
 class CallbackController extends Controller
 {
   public function index()
@@ -35,7 +38,8 @@ class CallbackController extends Controller
       case 'RECHARGE_FAILURE':
         $reponse_array =  array("status" => 400, "message" => "Transaction failed");
         break;
-        $reponse_array =  array("status" => 404, "message" => "Not F ound!");
+      default:
+        $reponse_array =  array("status" => 400, "message" => "Transaction failed");
         break;
     }
     return  json_encode($reponse_array);
