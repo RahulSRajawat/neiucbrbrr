@@ -35,13 +35,6 @@ class CallbackController extends Controller
       case 'RECHARGE_FAILURE':
         $reponse_array =  array("status" => 400, "message" => "Transaction failed");
         break;
-      case 'MERCHANT_ONBOARDING':
-        $reponse_array =  array("status" => 200, "message" => "merchant onboarding success");
-        break;
-      case 'CMS_BALANCE_INQUIRY':
-        $reponse_array =  array("status" => 200, "message" => "merchant onboarding success");
-        break;
-      default:
         $reponse_array =  array("status" => 404, "message" => "Not F ound!");
         break;
     }
