@@ -95,9 +95,6 @@
     <li>
         <hr class="hr-horizontal">
     </li>
-    @php
-     $prepaid = "prepaid";   
-    @endphp 
     <li class="nav-item">
         <a class="nav-link"  href="{{ route('recharge-plan.index') }}" role="button">
             <i class="icon">

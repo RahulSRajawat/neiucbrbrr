@@ -11,64 +11,40 @@ class CallbackController extends Controller
 {
   public function index()
   {
+    $reponse_array = array();
     $data = file_get_contents('php://input');
     $decode_data = json_decode($data);
+    // $param = $decode_data->param;
+    // $operator = $param->operator;
+    // $canumber = $decode_data->canumber;
+    // $amount = $decode_data->amount;
+    // $ackno = $decode_data->ackno;
+    // $referenceid = $decode_data->referenceid;
+    // $status = $decode_data->status;
+    // $operatorid = $decode_data->operatorid;
+    // $message = $decode_data->message;
     Callbackdata::create([
-      "callback_status" => "Testing",
+      "callback_status" => $decode_data->status,
       "callback_data" => $data,
-      "callback_event" => "event",
+      "callback_event" => $decode_data->event,
     ]);
-    return  json_encode(
-      array(
-        "status" => 200,
-        "message" => "Transaction completed successfully"
-      )
-    );
-    // return redirect()->route("home");
-    // switch ($decode_data->event) {
-    //     case 'RECHARGE_SUCCESS':
-    //         $param = $decode_data->param;
-    //         $operator = $param->operator;
-    //         $canumber = $decode_data->canumber;
-    //         $amount = $decode_data->amount;
-    //         $ackno = $decode_data->ackno;
-    //         $referenceid = $decode_data->referenceid;
-    //         $status = $decode_data->status;
-    //         $operatorid = $decode_data->operatorid;
-    //         $message = $decode_data->message;
-    //         echo json_encode(
-    //             array(
-    //                 "status" => $status,
-    //                 "message" => $message
-    //             )
-    //         );
-    //         $db->query('update set column status 1')->where();
-    //         break;
-    //     case 'RECHARGE_FAILURE':
-    //         # code...
-    //         break;
-    //     case 'MERCHANT_ONBOARDING':
-    //         echo json_encode(
-    //             array(
-    //                 "status" => 200,
-    //                 "message" => "merchant onboarding success"
-    //             )
-    //         );
-    //         break;
-    //     case 'CMS_BALANCE_INQUIRY':
-    //         echo json_encode(
-    //             array(
-    //                 "status" => 200,
-    //                 "message" => "merchant onboarding success"
-    //             )
-    //         );
-    //         break;
-    //     default:
-    //         echo json_encode(array(
-    //             "status" => 404,
-    //             "message" => "Not Found!"
-    //         ));
-    //         break;
-    // }
+    switch ($decode_data->event) {
+      case 'RECHARGE_SUCCESS':
+        $reponse_array =  array("status" => 200, "message" => "Transaction completed successfully");
+        break;
+      case 'RECHARGE_FAILURE':
+        $reponse_array =  array("status" => 400, "message" => "Transaction failed");
+        break;
+      case 'MERCHANT_ONBOARDING':
+        $reponse_array =  array("status" => 200, "message" => "merchant onboarding success");
+        break;
+      case 'CMS_BALANCE_INQUIRY':
+        $reponse_array =  array("status" => 200, "message" => "merchant onboarding success");
+        break;
+      default:
+        $reponse_array =  array("status" => 404, "message" => "Not F ound!");
+        break;
+    }
+    return  json_encode($reponse_array);
   }
 }

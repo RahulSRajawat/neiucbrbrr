@@ -1,64 +1,59 @@
-@extends("layouts.app")
+@extends('layouts.app')
 @section('title', 'Recharge Prepaid')
-@section("content")
-<div class="conatiner-fluid content-inner mt-n5 py-0">
-    <div>
-        <div class="row">
-            <div class="col-sm-12 col-lg-6">
-                <div class="card">
-                    <div class="card-header d-flex justify-content-between">
-                        <div class="header-title">
-                            <h4 class="card-title">DTH Recharge</h4>
+@section('content')
+    <div class="conatiner-fluid content-inner mt-n5 py-0">
+        <div>
+            <div class="row">
+                <div class="col-sm-12 col-lg-4">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between">
+                            <div class="header-title">
+                                <h5 class="card-title">DTH Mobile Recharge</h5>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card-body">
-                        <form>
-                            <div class="form-group">
-                                <label class="form-label" for="pwd">Operator:</label>
-                                <select class="form-select mb-3 shadow-none">
-                                    <option selected="">Select Your Operator</option>
-                                    <option value="1">BIG TV</option>
-                                    <option value="2">AIRTEL</option>
-                                    <option value="3">Jio</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label" for="email">Customer ID:</label>
-                                <input type="text" class="form-control" id="mnumber">
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label" for="pwd">Recharge Amount:</label>
-                                <input type="text" class="form-control" id="pwd">
-                            </div>
-                            <div class="checkbox mb-3">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault3">
-                                    <label class="form-check-label" for="flexCheckDefault3">
-                                        Remember me
-                                    </label>
+                        <div class="card-body">
+                            <div class="alerts"></div>
+                            <form class="recharge_form" id="add" method="post"
+                                action="{{ route('recharge.prepaid-store') }}">
+                                <input type="hidden" name="user_id" value="{{ Auth::id() }}">
+                                @csrf
+                                <div class="form-group">
+                                    <label class="form-label" for="pwd">Operator:</label>
+                                    <select class="form-select mb-3 shadow-none" name="operator">
+                                        <option selected="" value="">Select Your Operator</option>
+                                        @foreach ($operators as $operator)
+                                            @if ($operator->category == 'DTH')
+                                                <option value="{{ $operator->id }}">{{ $operator->name }}</option>
+                                            @endif
+                                        @endforeach
+                                    </select>
                                 </div>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                            <button type="submit" class="btn btn-danger">cancel</button>
-                        </form>
+                                <div class="form-group">
+                                    <label class="form-label" for="customer_id">Customer ID:</label>
+                                    <input type="text" class="form-control" id="customer_id" name="customer_id">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="pwd">Recharge Amount:</label>
+                                    <input type="number" class="form-control" id="amount" name="amount">
+                                </div>
+                                <button type="submit"
+                                    class="btn btn-outline-primary rounded-pill btn-sbmit">Submit</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-sm-12 col-lg-6">
-                <div class="card">
-                    <div class="card-header d-flex justify-content-between">
-                        <div class="header-title">
-                            <h4 class="card-title">DTH COMMENT</h4>
+                <div class="col-sm-12 col-lg-8">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between">
+                            <div class="header-title">
+                                <h5 class="card-title">DTH Recharge Plans</h5>
+                            </div>
                         </div>
-                    </div>
-                    <div class="card-body">
-                        <form>
-                            hello
-                        </form>
+                        <div class="card-body">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 @endsection
