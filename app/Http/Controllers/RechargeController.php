@@ -24,17 +24,21 @@ class RechargeController extends Controller
     { 
         $service = 'recharge/recharge/getoperator';
         $res = json_decode(ApiController::post($service));
+        $operators = array();
         if ($res->responsecode == 1) {
             $operators = $res->data;
-            return view('recharge.prepaid', compact('operators'));
-        } else {
-            $operators = array();
-            return view('recharge.prepaid', compact('operators'));
         }
+        return view('recharge.prepaid', compact('operators'));
     }
     public function dth()
     {
-        return view('recharge.dth');
+        $service = 'recharge/recharge/getoperator';
+        $res = json_decode(ApiController::post($service));
+        $operators = array();
+        if ($res->responsecode == 1) {
+            $operators = $res->data;
+        }
+        return view('recharge.dth', compact('operators'));
     }
     /**
      * Store a newly created resource in storage.
