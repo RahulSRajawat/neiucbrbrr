@@ -13,12 +13,9 @@
                                     <li>Mobile :</li>
                                     <li>Month Limit :</li>
                                 </ul>
-                                @php
-                                    print_r($details);
-                                @endphp
                                 <ul class="details">
-                                    <li><i class="fa fa-user"></i> RAHUL RAHUL</li>
-                                    <li><i class="fa fa-mobile"></i> 9755678764</li>
+                                    <li><i class="fa fa-user"></i> {{ $details->fname }} {{ $details->lname }}</li>
+                                    <li><i class="fa fa-mobile"></i> {{ $details->mobile }}</li>
                                     <li class="rem-limit"><i class="fa fa-inr"></i> 25000.00</li>
                                 </ul>
                             </div>
