@@ -15,7 +15,7 @@ class DmtController extends Controller
      */
     public function index($phone)
     {
-        $service = 'mt/remitter/queryremitter';
+        $service = 'dmt/remitter/queryremitter';
         $body = array("mobile"=> $phone,"bank3_flag"=> "NO");
         $details = json_decode(ApiController::post($service,$body));
         return view('dmt.index',compact('details'));
@@ -42,7 +42,7 @@ class DmtController extends Controller
         $request->validate([
             'phone' => 'required|max:10'
         ]);
-        $service = 'mt/remitter/queryremitter';
+        $service = 'dmt/remitter/queryremitter';
         $body = array("mobile"=> $request->phone,"bank3_flag"=> "NO");
         $res = json_decode(ApiController::post($service,$body));
         if ($res->responsecode == 1) {
