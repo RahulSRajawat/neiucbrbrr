@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CashfreePaymentController;
+use App\Http\Controllers\DmtController;
 use App\Http\Controllers\RechargeController;
 use App\Http\Controllers\RechargePlanController;
 /*
@@ -143,10 +144,17 @@ Route::group(["prefix" => "retailer", "middleware" => ["isRetailer", "auth", "Pr
         Route::get('property-salary-employee', [LoanController::class, 'property_salary_employed'])->name("loan.property-salary-employee");
         Route::get('property-self-employee', [LoanController::class, 'property_self_employed'])->name("loan.property-self-employee");
     });
+    // Recharge Start
     Route::group(["prefix" => "recharge"], function () {
         Route::get('prepaid', [RechargeController::class, 'prepaid'])->name("recharge.prepaid");
         Route::get('dth', [RechargeController::class, 'dth'])->name("recharge.dth");
     });
+    // Recharge End
+    // DMT Start
+    Route::group(["prefix" => "dmt"], function () {
+        Route::get('money-transfer', [DmtController::class, 'create'])->name("dmt.remmiter");
+    });
+    // DMT End  
 });
 Route::group(["prefix" => "employee", "middleware" => ["isEmployee", "auth", "PreventBackHistory"]], function () {
     Route::get("dashboard", [EmployeeController::class, 'index'])->name("employee.dashboard");
