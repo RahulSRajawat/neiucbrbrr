@@ -25,7 +25,6 @@ class CallbackController extends Controller
     // $message = $decode_data->message;
     if (!empty($decode_data)) {
       Callbackdata::create([
-        "callback_status" => $decode_data->status,
         "callback_data" => $data,
         "callback_event" => $decode_data->event,
       ]);
