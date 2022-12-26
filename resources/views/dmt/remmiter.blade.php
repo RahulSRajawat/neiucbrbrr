@@ -21,12 +21,12 @@
                                     </ul>
                                 </div>
                             @endif
-                            <form method="post" action="{{ route('recharge-plan.store') }}">
+                            <form method="post" action="{{ route('dmt.query-remmiter') }}">
                                 @csrf
                                 <div class="row">
                                     <div class="col-md-12 mb-3">
                                         <label for="">Customer Mobile Number</label>
-                                        <input type="number" min="0" class="form-control" placeholder="Enter 10 digit customer mobile number" name="mobile" pattern="[0-9]{10,10}" title="10 Digit Mobile Number" maxlength="10">
+                                        <input type="number" min="0" class="form-control" placeholder="Enter 10 digit customer mobile number" name="phone" pattern="[0-9]{10,10}" title="10 Digit Mobile Number" maxlength="10">
                                     </div>
                                     <div class="col-md-12 mb-3">
                                         <button type="submit" class="btn btn-primary">Submit</button>
