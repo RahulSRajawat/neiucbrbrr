@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use App\Mail\CallBackMail;
 use Illuminate\Http\Request;
 use DB;
@@ -9,7 +7,6 @@ use App\User;
 use App\Models;
 use App\Models\Callbackdata;
 use Illuminate\Support\Facades\Mail;
-
 class CallbackController extends Controller
 {
   public function index()
@@ -31,16 +28,18 @@ class CallbackController extends Controller
     //   "callback_data" => $data,
     //   "callback_event" => $decode_data->event,
     // ]);
-    switch ($decode_data->event) {
-      case 'RECHARGE_SUCCESS':
-        $reponse_array =  array("status" => 200, "message" => "Transaction completed successfully");
-        break;
-      case 'RECHARGE_FAILURE':
-        $reponse_array =  array("status" => 400, "message" => "Transaction failed");
-        break;
-      default:
-        $reponse_array =  array("status" => 400, "message" => "Transaction failed");
-        break;
+    if (!empty($decode_data)) {
+      switch ($decode_data->event) {
+        case 'RECHARGE_SUCCESS':
+          $reponse_array =  array("status" => 200, "message" => "Transaction completed successfully");
+          break;
+        case 'RECHARGE_FAILURE':
+          $reponse_array =  array("status" => 400, "message" => "Transaction failed");
+          break;
+        default:
+          $reponse_array =  array("status" => 400, "message" => "Transaction failed");
+          break;
+      }
     }
     return  json_encode($reponse_array);
   }
