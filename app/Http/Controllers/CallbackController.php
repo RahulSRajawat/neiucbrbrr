@@ -37,7 +37,7 @@ class CallbackController extends Controller
           $reponse_array =  array("status" => 400, "message" => "Transaction failed");
           break;
         default:
-          $reponse_array =  array("status" => 200, "message" => "Transaction completed successfully");
+          $reponse_array =  array("status" => 200, "message" => "1 Transaction completed successfully");
           break;
       }
     }
