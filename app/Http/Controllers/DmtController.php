@@ -45,9 +45,9 @@ class DmtController extends Controller
         $service = 'dmt/remitter/queryremitter';
         $body = array("mobile"=> $request->phone,"bank3_flag"=> "NO");
         $res = json_decode(ApiController::post($service,$body));
-        if ($res->responsecode == 1) {
+        if ($res->response_code == 1) {
             return redirect()->route('dmt.index', $request->phone);
-        }elseif($res->responsecode  == 0){
+        }elseif($res->response_code  == 0){
 
         }
     }
