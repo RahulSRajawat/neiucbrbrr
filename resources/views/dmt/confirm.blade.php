@@ -138,7 +138,7 @@ th {
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td><i class="fa fa-inr"></i> <strong>{{ $amount }}&nbsp; ( Two hundred Only)</strong></td>
+                                            <td><i class="fa fa-inr"></i> <strong>{{ $amount }}</strong></td>
                                             <td><i class="fa fa-inr"></i> <strong>10</strong></td>
                                             <td>
                                                 <label>
