@@ -165,6 +165,8 @@ class DmtController extends Controller
         $beneficiary_detail = $this->beneficiary . 'registerbeneficiary/deletebeneficiary';
         $body = array("mobile" => $phone, "bene_id" => $id);
         $res = json_decode(ApiController::post($beneficiary_detail, $body));
+        $beneficiary_table = DmtBeneficiary::where("bene_id",$id)->where('user_id',Auth::id())->first();
+        DmtBeneficiary::destroy($beneficiary_table->id);
         return redirect()->route('dmt.index', $phone)->with("status", $res->message);
     }
     public function beneficiary_status($id)
