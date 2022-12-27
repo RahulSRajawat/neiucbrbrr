@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BankList;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -31,7 +32,8 @@ class DmtController extends Controller
         if ($res->response_code == 1) {
             $beneficiary_fetchs = $res->data;
         }
-        return view('dmt.index', compact('detail','beneficiary_fetchs'));
+        $banks = BankList::all();
+        return view('dmt.index', compact('detail','beneficiary_fetchs','banks'));
     }
 
     /**
