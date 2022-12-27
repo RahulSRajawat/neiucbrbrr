@@ -203,6 +203,7 @@ class DmtController extends Controller
         if ($res->response_code == 1) {
             $beneficiary_fetch_bene = $res->data;
         }
+        $amount = $request->amount;
         return view('dmt.confirm', compact('detail', 'beneficiary_fetch_bene', 'amount')); 
     }
 }
