@@ -890,8 +890,8 @@
                                     <div class="col-sm-3">Amount</div>
                                 </div>
                             </div>
-                            <div class="white_bg reg_bene_det_wrap" id="listid34682971">
-                                @foreach ($beneficiary_fetchs as $beneficiary_fetch)
+                            @foreach ($beneficiary_fetchs as $beneficiary_fetch)
+                                <div class="white_bg reg_bene_det_wrap" id="listid34682971">
                                     <div class="row">
                                         <div class="col-sm-1 reg_bene_det">
                                             <a class="bene_status delete_bene" href="" data-bene="34682971"><i
@@ -901,7 +901,9 @@
                                         <div class="col-sm-2 reg_bene_det">{{ $beneficiary_fetch->bankname }}</div>
                                         <div class="col-sm-2 reg_bene_det">{{ $beneficiary_fetch->accno }}</div>
                                         <div class="col-sm-2 reg_bene_det">
-                                            <div class="bene_status"><i class="fa {{ ($beneficiary_fetch->verified == 1)?'fa-check':'fa-times' }}"></i></div>
+                                            <div class="bene_status"><i
+                                                    class="fa {{ $beneficiary_fetch->verified == 1 ? 'fa-check' : 'fa-times' }}"></i>
+                                            </div>
                                         </div>
                                         <div class="col-sm-3 reg_bene_det">
                                             <form class="one_col dmt-submit" id="confirmTxn" method="post"
@@ -915,30 +917,30 @@
                                             </form>
                                         </div>
                                     </div>
-                                @endforeach
-                                <div class="row bene_delete" id="delete34682971" style="display:none;">
-                                    <form class="one_col verify-delete-beneficiary" id="34682971" method="post"
-                                        accept-charset="utf-8">
-                                        <input type="hidden" name="benetoken" value="34682971">
-                                        <input type="hidden" name="accno" value="919755678764">
-                                        <div class="col-sm-3">
-                                            <div class="form-group margin_t_20">
-                                                <input type="text" name="otp" id="otp" pattern="[0-9]+"
-                                                    class="form-control"
-                                                    placeholder="Enter OTP Received on Remitter mobile"
-                                                    autocomplete="off" required="">
+                                    <div class="row bene_delete" id="delete34682971" style="display:none;">
+                                        <form class="one_col verify-delete-beneficiary" id="34682971" method="post"
+                                            accept-charset="utf-8">
+                                            <input type="hidden" name="benetoken" value="34682971">
+                                            <input type="hidden" name="accno" value="919755678764">
+                                            <div class="col-sm-3">
+                                                <div class="form-group margin_t_20">
+                                                    <input type="text" name="otp" id="otp"
+                                                        pattern="[0-9]+" class="form-control"
+                                                        placeholder="Enter OTP Received on Remitter mobile"
+                                                        autocomplete="off" required="">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-sm-2">
-                                            <div class="form-group">
-                                                <input type="submit" value="Submit"
-                                                    class="btn btn-danger margin_t_20 34682971">
+                                            <div class="col-sm-2">
+                                                <div class="form-group">
+                                                    <input type="submit" value="Submit"
+                                                        class="btn btn-danger margin_t_20 34682971">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-sm-7 errormsgbene34682971"> </div>
-                                    </form>
+                                            <div class="col-sm-7 errormsgbene34682971"> </div>
+                                        </form>
+                                    </div>
                                 </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
