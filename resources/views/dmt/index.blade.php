@@ -883,7 +883,7 @@
                             <div class="white_bg reg_bene_head">
                                 <div class="row">
                                     <div class="col-sm-1">Status</div>
-                                    <div class="col-sm-2">Bene Name</div>
+                                    <div class="col-sm-2">Bene ID</div>
                                     <div class="col-sm-2">Bank</div>
                                     <div class="col-sm-2">A/C Number</div>
                                     <div class="col-sm-2">Bene Status</div>
@@ -891,29 +891,34 @@
                                 </div>
                             </div>
                             <div class="white_bg reg_bene_det_wrap" id="listid34682971">
-                                <div class="row">
-                                    <div class="col-sm-1 reg_bene_det">
-                                        <div class="bene_status delete_bene" data-bene="34682971"><i
-                                                class="fa fa-trash"></i></div>
+                                @foreach ($beneficiary_fetchs as $beneficiary_fetch)
+                                @php
+                                    print_r($beneficiary_fetch);
+                                @endphp
+                                    <div class="row">
+                                        <div class="col-sm-1 reg_bene_det">
+                                            <div class="bene_status delete_bene" data-bene="34682971"><i
+                                                    class="fa fa-trash"></i></div>
+                                        </div>
+                                        <div class="col-sm-2 reg_bene_det">RAHUL SINGH RAJAWAT</div>
+                                        <div class="col-sm-2 reg_bene_det">PAYTM PAYMENTS BANK LIMITED</div>
+                                        <div class="col-sm-2 reg_bene_det">919755678764</div>
+                                        <div class="col-sm-2 reg_bene_det">
+                                            <div class="bene_status"><i class="fa fa-check"></i></div>
+                                        </div>
+                                        <div class="col-sm-3 reg_bene_det">
+                                            <form class="one_col dmt-submit" id="confirmTxn" method="post"
+                                                accept-charset="utf-8">
+                                                <input type="hidden" name="receiverToken" value="34682971">
+                                                <div class="bene_pro">
+                                                    <input type="text" name="amount" autocomplete="off"
+                                                        pattern="[0-9]{3,5}" class="form-control" required="true">
+                                                    <button type="submit" style="width:auto !important;">Pay</button>
+                                                </div>
+                                            </form>
+                                        </div>
                                     </div>
-                                    <div class="col-sm-2 reg_bene_det">RAHUL SINGH RAJAWAT</div>
-                                    <div class="col-sm-2 reg_bene_det">PAYTM PAYMENTS BANK LIMITED</div>
-                                    <div class="col-sm-2 reg_bene_det">919755678764</div>
-                                    <div class="col-sm-2 reg_bene_det">
-                                        <div class="bene_status"><i class="fa fa-check"></i></div>
-                                    </div>
-                                    <div class="col-sm-3 reg_bene_det">
-                                        <form class="one_col dmt-submit" id="confirmTxn" method="post"
-                                            accept-charset="utf-8">
-                                            <input type="hidden" name="receiverToken" value="34682971">
-                                            <div class="bene_pro">
-                                                <input type="text" name="amount" autocomplete="off"
-                                                    pattern="[0-9]{3,5}" class="form-control" required="true">
-                                                <button type="submit" style="width:auto !important;">Pay</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
+                                @endforeach
                                 <div class="row bene_delete" id="delete34682971" style="display:none;">
                                     <form class="one_col verify-delete-beneficiary" id="34682971" method="post"
                                         accept-charset="utf-8">

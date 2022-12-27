@@ -8,7 +8,8 @@ use Illuminate\Support\Facades\Validator;
 
 class DmtController extends Controller
 {
-    public $service = "dmt/remitter/";
+    public $remitter = "dmt/remitter/";
+    public $beneficiary = "dmt/beneficiary/";
     /**
      * Display a listing of the resource.
      *
@@ -16,14 +17,21 @@ class DmtController extends Controller
      */
     public function index($phone)
     {
-        $service = $this->service.'queryremitter';
+        $remitter_detail = $this->remitter.'queryremitter';
         $body = array("mobile" => $phone, "bank3_flag" => "NO");
-        $res = json_decode(ApiController::post($service, $body));
+        $res = json_decode(ApiController::post($remitter_detail, $body));
         $detail  = array();
         if ($res->response_code == 1) {
             $detail = $res->data;
         }
-        return view('dmt.index', compact('detail'));
+        $beneficiary_detail = $this->beneficiary.'registerbeneficiary/fetchbeneficiary';
+        $body = array("mobile" => $phone);
+        $res = json_decode(ApiController::post($beneficiary_detail, $body));
+        $beneficiary_fetch  = array();
+        if ($res->response_code == 1) {
+            $beneficiary_fetchs = $res->data;
+        }
+        return view('dmt.index', compact('detail','beneficiary_fetchs'));
     }
 
     /**
@@ -38,7 +46,7 @@ class DmtController extends Controller
 
     public function register_remmiter($phone)
     {
-        $service = $this->service.'queryremitter';
+        $service = $this->remitter.'queryremitter';
         $body = array("mobile" => $phone, "bank3_flag" => "NO");
         $res = json_decode(ApiController::post($service, $body));
         $stateresp  = "";
@@ -58,7 +66,7 @@ class DmtController extends Controller
         $request->validate([
             'phone' => 'required|max:10'
         ]);
-        $service = $this->service.'queryremitter';
+        $service = $this->remitter.'queryremitter';
         $body = array("mobile" => $request->phone, "bank3_flag" => "NO");
         $res = json_decode(ApiController::post($service, $body));
         if ($res->response_code == 1) {
@@ -79,7 +87,7 @@ class DmtController extends Controller
             "address" => 'required'
         ]);
         
-        $service = $this->service.'registerremitter';
+        $service = $this->remitter.'registerremitter';
         $body = array("mobile" => $request->phone,"firstname"=>$request->fname,"lastname"=>$request->lname,"address"=>$request->address,"otp"=>$request->otp,"pincode"=>$request->pin_code,"stateresp"=>$request->stateresp,"bank3_flag"=>"yes","dob"=>$request->fname,"gst_state"=>"07");
         $res = json_decode(ApiController::post($service, $body));
         if ($res->response_code == 1) {
