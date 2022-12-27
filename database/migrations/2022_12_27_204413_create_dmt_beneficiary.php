@@ -15,6 +15,7 @@ class CreateDmtBeneficiary extends Migration
     {
         Schema::create('dmt_beneficiary', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger("user_id");
             $table->bigInteger("bene_id");
             $table->string("mobile");
             $table->string("benename");

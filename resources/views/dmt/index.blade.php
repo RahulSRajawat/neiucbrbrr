@@ -73,45 +73,31 @@
                             <div class="white_bg add-bene half_padd" id="add_bene" style="display: none;">
                                 <div class="close_panel_btn" id="close_panel_btn1"><a href="javascript:"
                                         class="btn-close-bene"><i class="fa fa-close"></i></a></div>
-                                <form class="one_col" name="bene-search" id="add-new-receiver" method="post"
-                                    accept-charset="utf-8">
-                                    <input type="hidden" name="verified" value="0" id="is-verified">
+                                <form class="one_col" method="post">
                                     <div class="row pos_rel">
                                         <div class="head">Register Beneficiary</div>
-                                        <div class="col-sm-4">
-                                            <div class="form-group">
-                                                <label>Select Type* :</label>
-                                                <select
-                                                    class="form-control" name="type">
-                                                    <option value="0">IMPS Bank</option>
-                                                    <option value="1">Gramin Bank</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
+                                        <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Select Bank* :</label>
                                                 <select id="my-select" class="form-control" name="bank">
                                                     <option value="">-- Select Bank -- </option>
                                                     @foreach ($banks as $bank)
-                                                        <option value="{{ $bank->bank_id }}">{{$bank->bank_name}} </option> 
+                                                        <option value="{{ $bank->bank_id }}">{{ $bank->bank_name }}
+                                                        </option>
                                                     @endforeach
                                                 </select>
-
                                             </div>
                                         </div>
-                                        <div class="col-sm-4">
+                                        <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Beneficiary Name* :</label>
-                                                <input type="text" name="benename" data-lpignore="true"
-                                                    id="benename" class="form-control" pattern="[A-Za-z ]+"
+                                                <input type="text" name="benename" data-lpignore="true" id="benename"
+                                                    class="form-control" pattern="[A-Za-z ]+"
                                                     placeholder="Enter Beneficiary Name" autocomplete="false"
                                                     required="">
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4 col-sm-6">
+                                        <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Account No* :</label>
                                                 <input type="text" name="accno" id="acno" data-lpignore="true"
@@ -120,7 +106,7 @@
                                                 <span class="account-number"></span>
                                             </div>
                                         </div>
-                                        <div class="col-md-4 col-sm-6">
+                                        <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Confirm Account No* :</label>
                                                 <input type="text" name="confirmaccno" data-lpignore="true"
@@ -129,111 +115,59 @@
                                                 <span class="caccount-number"></span>
                                             </div>
                                         </div>
-                                        <div class="col-md-4 col-sm-12">
-                                            <div class="form-group margin_t_20">
-                                                <label>
-                                                    <input type="radio" class="isifsc" name="isifsc" value="1"
-                                                        checked=""> I Dont Have?</label>
-                                                <label>&nbsp;</label>
-                                                <label>
-                                                    <input type="radio" class="isifsc" name="isifsc" value="0">
-                                                    I Have IFSC?</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-5 col-sm-12">
-                                            <div class="form-group margin_t_20">
-                                                <label>
-                                                    <input type="radio" class="only_register" id="only_register"
-                                                        name="only_register" value="0" checked=""> Only
-                                                    Register?</label>
-                                                <label>&nbsp;</label>
-                                                <label>
-                                                    <input type="radio" class="only_register" id="reg_pay"
-                                                        name="only_register" value="1"> Register and Pay?</label>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 col-sm-6 amount-field " id="amount-field"
-                                            style="display: none;">
+                                        <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>Enter Amount :</label>
-                                                <input type="text" name="amount" id="initiateAmount"
-                                                    data-lpignore="true" pattern="[0-9]+" class="form-control"
-                                                    placeholder="Enter Amount." autocomplete="off"> <span
-                                                    class="txn-amount"></span>
+                                                <label>Date Of Birth* :</label>
+                                                <input type="date" name="dob" id="dob"
+                                                    class="form-control">
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="getifsc">
-                                            <div class="col-sm-4">
-                                                <div class="form-group">
-                                                    <label>Select State* :</label>
-                                                    <select class="form-control select-state" name="state"
-                                                        style="width: 100%" data-placeholder="Select State">
-                                                        <option></option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-4">
-                                                <div class="form-group">
-                                                    <label>Select Branch* :</label>
-                                                    <select class="form-control select-branch" name="branch"
-                                                        style="width: 100%" data-placeholder="Select Branch">
-                                                        <option></option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-4">
-                                                <div class="form-group">
-                                                    <label>IFSC Code :</label>
-                                                    <input type="text" name="ifsccode" id="ifsccode"
-                                                        class="form-control" placeholder="Enter IfSC Code"
-                                                        data-lpignore="true" autocomplete="off">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-4 receiver-verify">
+                                        <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>OTP* :</label>
-                                                <input type="text" name="otp" class="form-control"
-                                                    placeholder="Enter OTP" autocomplete="off" required=""
-                                                    disabled="">
+                                                <label>Pin Code* :</label>
+                                                <input type="number" min="0" name="pin_code" id="pin_code"
+                                                    class="form-control">
                                             </div>
                                         </div>
-                                        <div class="col-sm-2 bene-otp">
+                                        <div class="col-md-6">
                                             <div class="form-group">
-                                                <button type="button" data-toggle="tooltip" data-placement="bottom"
-                                                    class="btn btn-black btn_mobile margin_t_20 btn-xss re-gen-receiver-otp"
-                                                    title="" data-original-title="Re-Generate OTP"><i
-                                                        class="fa fa-rotate-right"></i> Re-Generate OTP</button>
+                                                <label>Address* :</label>
+                                                <input type="text" name="address" id="address"
+                                                    class="form-control">
                                             </div>
                                         </div>
-                                        <div class="col-sm-12">
-                                            <div class="col-sm-12">
-                                                <div class="form-group">
-                                                    <button type="submit"
-                                                        class="btn btn-danger margin_t_20 add-new-receiver"><i
-                                                            class="fa fa-user"></i> Register Beneficiary</button>
-                                                    <button type="button"
-                                                        class="btn btn-light margin_t_20 verify-bene-name"><i
-                                                            class="fa fa-check"></i> Verify Account [Fee Rs. 4]</button>
+                                        <div class="col-md-6 col-sm-12">
+                                            <label for="">Do You Have IFSC ?</label>
+                                            <div class="form-group">
+                                                <div class="form-check form-check-inline">
+                                                    <label class="form-check-label">
+                                                        <input class="form-check-input" type="radio" name="radio_ifsc"
+                                                            value="Yes"> Yes
+                                                    </label>
                                                 </div>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <div class="form-group">
-                                                    <button type="button"
-                                                        class="btn btn-black margin_t_20 pull-center our-ifsccode"
-                                                        style="display:none;"></button>
+                                                <div class="form-check form-check-inline">
+                                                    <label class="form-check-label">
+                                                        <input class="form-check-input" type="radio" name="radio_ifsc"
+                                                            value="Yes"> No
+                                                    </label>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-12 address" style="display: none"></div>
+                                        <div class="col-md-12 ifsc-field" style="display: none;">
+                                            <div class="form-group">
+                                                <label>IFSC Code :</label>
+                                                <input type="text" name="ifsccode" id="ifsccode"
+                                                    class="form-control" placeholder="Enter IfSC Code"
+                                                    data-lpignore="true" autocomplete="off">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <button type="submit"
+                                                    class="btn btn-danger margin_t_20 add-new-receiver"><i
+                                                        class="fa fa-user"></i> Register Beneficiary</button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </form>
                             </div>
@@ -251,8 +185,9 @@
                                 <div class="white_bg reg_bene_det_wrap" id="listid34682971">
                                     <div class="row">
                                         <div class="col-sm-1 reg_bene_det">
-                                            <a class="bene_status delete_bene" href="{{ route('dmt.beneficiary-delete',["id"=>$beneficiary_fetch->bene_id,"phone"=>$detail->mobile]) }}" data-bene="34682971"><i
-                                                    class="fa fa-trash"></i></a>
+                                            <a class="bene_status delete_bene"
+                                                href="{{ route('dmt.beneficiary-delete', ['id' => $beneficiary_fetch->bene_id, 'phone' => $detail->mobile]) }}"
+                                                data-bene="34682971"><i class="fa fa-trash"></i></a>
                                         </div>
                                         <div class="col-sm-2 reg_bene_det">{{ $beneficiary_fetch->name }}</div>
                                         <div class="col-sm-2 reg_bene_det">{{ $beneficiary_fetch->bankname }}</div>
@@ -319,11 +254,12 @@
         $('#close_panel_btn1').click(function() {
             $('#add_bene').toggle(500);
         });
-        $('#only_register').click(function() {
-            $('#amount-field').hide();
-        });
-        $('#reg_pay').click(function() {
-            $('#amount-field').show();
+        $("input[name='radio_ifsc']").on("click",function(){
+            if($(this).val() == "Yes"){
+                $(".ifsc-field").show();
+            }else{
+                $(".ifsc-field").hide();
+            }
         });
     </script>
 @endsection
