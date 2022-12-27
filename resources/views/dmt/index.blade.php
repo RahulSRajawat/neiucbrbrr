@@ -13,7 +13,7 @@
                                     <li>Mobile :</li>
                                     <li>Month Limit :</li>
                                 </ul>
-                                @foreach ($details as $detail)
+                                
                                 @php
                                     print_r($detail);
                                 @endphp
@@ -22,7 +22,7 @@
                                     <li><i class="fa fa-mobile"></i> {{ $detail->mobile }}</li>
                                     <li class="rem-limit"><i class="fa fa-inr"></i> 25000.00</li>
                                 </ul> --}}
-                                @endforeach
+                            
                             </div>
                             <div class="benelist_btn">
                                 <ul>

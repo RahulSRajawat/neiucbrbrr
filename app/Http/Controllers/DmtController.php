@@ -16,9 +16,13 @@ class DmtController extends Controller
     public function index($phone)
     {
         $service = 'dmt/remitter/queryremitter';
-        $body = array("mobile"=> $phone,"bank3_flag"=> "NO");
-        $details = json_decode(ApiController::post($service,$body));
-        return view('dmt.index',compact('details'));
+        $body = array("mobile" => $phone, "bank3_flag" => "NO");
+        $res = json_decode(ApiController::post($service, $body));
+        $detail  = array();
+        if ($res->response_code == 1) {
+            $detail = $res->data;
+        }
+        return view('dmt.index', compact('detail'));
     }
 
     /**
@@ -43,12 +47,11 @@ class DmtController extends Controller
             'phone' => 'required|max:10'
         ]);
         $service = 'dmt/remitter/queryremitter';
-        $body = array("mobile"=> $request->phone,"bank3_flag"=> "NO");
-        $res = json_decode(ApiController::post($service,$body));
+        $body = array("mobile" => $request->phone, "bank3_flag" => "NO");
+        $res = json_decode(ApiController::post($service, $body));
         if ($res->response_code == 1) {
             return redirect()->route('dmt.index', $request->phone);
-        }elseif($res->response_code  == 0){
-
+        } elseif ($res->response_code  == 0) {
         }
     }
 
