@@ -164,6 +164,7 @@ Route::group(["prefix" => "retailer", "middleware" => ["isRetailer", "auth", "Pr
         Route::get('money-transfer', [DmtController::class, 'create'])->name("dmt.remmiter");
         Route::get('money-transfer-confirm', [DmtController::class, 'confirm'])->name("dmt.confirm");
         Route::get('beneficiary-delete/{id}/{phone}', [DmtController::class, 'beneficiary_delete'])->name("dmt.beneficiary-delete");
+        Route::get('beneficiary-delete/{id}', [DmtController::class, 'beneficiary_status'])->name("dmt.beneficiary-status");
     });
     // DMT End
 });

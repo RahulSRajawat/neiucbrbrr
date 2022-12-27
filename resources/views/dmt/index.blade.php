@@ -219,9 +219,10 @@
                                         <div class="col-sm-2 reg_bene_det">{{ $beneficiary_fetch->bankname }}</div>
                                         <div class="col-sm-2 reg_bene_det">{{ $beneficiary_fetch->accno }}</div>
                                         <div class="col-sm-2 reg_bene_det">
-                                            <div class="bene_status"><i
+
+                                            <a href="{{ $beneficiary_fetch->verified == 0 ? route('dmt.beneficiary-status',$beneficiary_fetch->bene_id) : 'javascript:void(0)' }}" class="bene_status"><i
                                                     class="fa {{ $beneficiary_fetch->verified == 1 ? 'fa-check' : 'fa-times' }}"></i>
-                                            </div>
+                                            </a>
                                         </div>
                                         <div class="col-sm-3 reg_bene_det">
                                             <form class="one_col dmt-submit" id="confirmTxn" method="post"

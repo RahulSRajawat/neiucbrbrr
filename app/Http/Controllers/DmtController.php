@@ -167,4 +167,13 @@ class DmtController extends Controller
         $res = json_decode(ApiController::post($beneficiary_detail, $body));
         return redirect()->route('dmt.index', $phone)->with("status", $res->message);
     }
+    public function beneficiary_status($id)
+    {
+        $beneficiary_table = DmtBeneficiary::where("bene_id",$id)->where('user_id',Auth::id())->first();
+        dd($beneficiary_table);
+        // $beneficiary_detail = $this->beneficiary . 'registerbeneficiary/deletebeneficiary';
+        // $body = array("mobile" => $phone, "bene_id" => $id);
+        // $res = json_decode(ApiController::post($beneficiary_detail, $body));
+        // return redirect()->route('dmt.index', $phone)->with("status", $res->message);
+    }
 }
