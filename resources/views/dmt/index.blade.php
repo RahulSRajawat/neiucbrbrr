@@ -251,7 +251,7 @@
                                 <div class="white_bg reg_bene_det_wrap" id="listid34682971">
                                     <div class="row">
                                         <div class="col-sm-1 reg_bene_det">
-                                            <a class="bene_status delete_bene" href="{{ route('dmt.beneficiary-delete',$beneficiary_fetch->bene_id,$detail->mobile) }}" data-bene="34682971"><i
+                                            <a class="bene_status delete_bene" href="{{ route('dmt.beneficiary-delete',["id"=>$beneficiary_fetch->bene_id,"phone"=>$detail->mobile]) }}" data-bene="34682971"><i
                                                     class="fa fa-trash"></i></a>
                                         </div>
                                         <div class="col-sm-2 reg_bene_det">{{ $beneficiary_fetch->name }}</div>
