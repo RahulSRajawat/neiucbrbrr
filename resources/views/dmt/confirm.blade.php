@@ -84,7 +84,7 @@ th {
                                         <h4>REMITTER DETAILS</h4>
                                     </div>
                                 </div>
-                                <table class="table table-bordered">
+                                <table class="table table-bordered text-center">
                                     <thead>
                                         <tr>
                                             <th>NAME</th>
@@ -105,7 +105,7 @@ th {
                                         <h4>RECEIVER DETAILS</h4>
                                     </div>
                                 </div>
-                                <table class="table table-bordered">
+                                <table class="table table-bordered text-center">
                                     <thead>
                                         <tr>
                                             <th>BENEFICIARY NAME</th>
@@ -128,7 +128,7 @@ th {
                                         <h4>TRANSACTION DETAILS</h4>
                                     </div>
                                 </div>
-                                <table class="table table-bordered">
+                                <table class="table table-bordered text-center">
                                     <thead>
                                         <tr>
                                             <th>AMOUNT</th>
