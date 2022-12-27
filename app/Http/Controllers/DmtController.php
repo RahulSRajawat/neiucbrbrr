@@ -35,6 +35,11 @@ class DmtController extends Controller
         return view("dmt.remmiter");
     }
 
+    public function register_remmiter($phone)
+    {
+ 
+        return view("dmt.register-remmiter", compact('phone'));
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -52,6 +57,7 @@ class DmtController extends Controller
         if ($res->response_code == 1) {
             return redirect()->route('dmt.index', $request->phone);
         } elseif ($res->response_code  == 0) {
+            return redirect()->route("dmt.register-remmiter", $request->phone);
         }
     }
 

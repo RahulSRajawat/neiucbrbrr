@@ -13,14 +13,11 @@
                                     <li>Mobile :</li>
                                     <li>Month Limit :</li>
                                 </ul>
-                                
-                               
                                 <ul class="details">
                                     <li><i class="fa fa-user"></i> {{ $detail->fname }} {{ $detail->lname }}</li>
                                     <li><i class="fa fa-mobile"></i> {{ $detail->mobile }}</li>
                                     <li class="rem-limit"><i class="fa fa-inr"></i> 25000.00</li>
                                 </ul>
-                            
                             </div>
                             <div class="benelist_btn">
                                 <ul>
