@@ -23,7 +23,7 @@ class DmtController extends Controller
         if ($res->response_code == 1) {
             $detail = $res->data;
         }
-        return view('dmt.index', compact('detail'))->with("status", $res->message);
+        return view('dmt.index', compact('detail'));
     }
 
     /**
@@ -45,7 +45,7 @@ class DmtController extends Controller
         if ($res->response_code == 0) {
             $stateresp = $res->stateresp;
         }
-        return view("dmt.register-remmiter", compact('phone', 'stateresp'))->with("status", $res->message);
+        return view("dmt.register-remmiter", compact('phone', 'stateresp'));
     }
     /**
      * Store a newly created resource in storage.
@@ -62,9 +62,9 @@ class DmtController extends Controller
         $body = array("mobile" => $request->phone, "bank3_flag" => "NO");
         $res = json_decode(ApiController::post($service, $body));
         if ($res->response_code == 1) {
-            return redirect()->route('dmt.index', $request->phone);
+            return redirect()->route('dmt.index', $request->phone)->with("status", $res->message);
         } elseif ($res->response_code  == 0) {
-            return redirect()->route("dmt.register-remmiter", $request->phone);
+            return redirect()->route("dmt.register-remmiter", $request->phone)->with("status", $res->message);
         }
     }
     public function store_register_remmiter(Request $request)
@@ -83,7 +83,7 @@ class DmtController extends Controller
         $body = array("mobile" => $request->phone,"firstname"=>$request->fname,"lastname"=>$request->lname,"address"=>$request->address,"otp"=>$request->otp,"pincode"=>$request->pin_code,"stateresp"=>$request->stateresp,"bank3_flag"=>"yes","dob"=>$request->fname,"gst_state"=>"07");
         $res = json_decode(ApiController::post($service, $body));
         if ($res->response_code == 1) {
-            return redirect()->route('dmt.remmiter')->with("status", $res->message);
+            return redirect()->route('dmt.remmiter')->with("status", $res->message)->with("status", $res->message);
         } else {
             return redirect()->route("dmt.register-remmiter", $request->phone)->with("status", $res->message);
         }
