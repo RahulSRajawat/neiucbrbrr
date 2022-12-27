@@ -22,7 +22,7 @@ class DmtController extends Controller
         if ($res->response_code == 1) {
             $detail = $res->data;
         }
-        return view('dmt.index', compact('detail'));
+        return view('dmt.index', compact('detail'))->with("status",$res->message);
     }
 
     /**
@@ -44,7 +44,7 @@ class DmtController extends Controller
         if ($res->response_code == 0) {
             $stateresp = $res->stateresp;
         } 
-        return view("dmt.register-remmiter", compact('phone','stateresp'));
+        return view("dmt.register-remmiter", compact('phone','stateresp'))->with("status",$res->message);
     }
     /**
      * Store a newly created resource in storage.
