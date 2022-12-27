@@ -87,8 +87,8 @@ th {
                                 <table class="table table-bordered text-center">
                                     <thead>
                                         <tr>
-                                            <th>NAME</th>
-                                            <th>MOBILE</th>
+                                            <th class="text-center">NAME</th>
+                                            <th class="text-center">MOBILE</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -108,10 +108,10 @@ th {
                                 <table class="table table-bordered text-center">
                                     <thead>
                                         <tr>
-                                            <th>BENEFICIARY NAME</th>
-                                            <th>ACCOUNT NUMBER</th>
-                                            <th>BANK</th>
-                                            <th>IFSC Code</th>
+                                            <th class="text-center">BENEFICIARY NAME</th>
+                                            <th class="text-center">ACCOUNT NUMBER</th>
+                                            <th class="text-center">BANK</th>
+                                            <th class="text-center">IFSC Code</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -131,9 +131,9 @@ th {
                                 <table class="table table-bordered text-center">
                                     <thead>
                                         <tr>
-                                            <th>AMOUNT</th>
-                                            <th>CHARGES</th>
-                                            <th>TRANSFER TYPE*</th>
+                                            <th class="text-center">AMOUNT</th>
+                                            <th class="text-center">CHARGES</th>
+                                            <th class="text-center">TRANSFER TYPE*</th>
                                         </tr>
                                     </thead>
                                     <tbody>
