@@ -74,6 +74,7 @@
                                 <div class="close_panel_btn" id="close_panel_btn1"><a href="javascript:"
                                         class="btn-close-bene"><i class="fa fa-close"></i></a></div>
                                 <form class="one_col" method="post" action="{{ route('dmt.register-store-beneficiary') }}">
+                                    @csrf
                                     <div class="row pos_rel">
                                         <div class="head">Register Beneficiary</div>
                                         @if (session('success'))
