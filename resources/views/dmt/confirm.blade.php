@@ -116,9 +116,9 @@ th {
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>{{ $beneficiary_fetch_bene->name }}</td>
+                                            <td>{{ $beneficiary_fetch_bene->benename }}</td>
                                             <td>{{ $beneficiary_fetch_bene->accno }}</td>
-                                            <td>{{ $beneficiary_fetch_bene->bankname }}</td>
+                                            <td>{{ $beneficiary_fetch_bene->bank->bank_name }}</td>
                                             <td>{{ $beneficiary_fetch_bene->ifsc }}</td>
                                         </tr>
                                     </tbody>

@@ -21,4 +21,8 @@ class DmtBeneficiary extends Model
         "ifsc"
     ];
     use HasFactory;
+    public function bank()
+    {
+        return $this->belongsTo(BankList::class,'bankid');
+    }
 }

@@ -196,13 +196,7 @@ class DmtController extends Controller
         if ($res->response_code == 1) {
             $detail = $res->data;
         }
-        $beneficiary_detail = $this->beneficiary . 'registerbeneficiary/fetchbeneficiarybybeneid';
-        $body = array("mobile" => $request->phone,"beneid"=>$request->bene_id);
-        $res = json_decode(ApiController::post($beneficiary_detail, $body));
-        $beneficiary_fetch_bene  = array();
-        if ($res->response_code == 1) {
-            $beneficiary_fetch_bene = $res->data;
-        }
+        $beneficiary_fetch_bene = DmtBeneficiary::where("bene_id", $request->bene_id)->where('user_id', Auth::id())->first();
         $amount = $request->amount;
         return view('dmt.confirm', compact('detail', 'beneficiary_fetch_bene', 'amount')); 
     }
