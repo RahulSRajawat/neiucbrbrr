@@ -109,6 +109,7 @@ class DmtController extends Controller
             "ifsccode" => 'max:11'
         ]);
         $service = $this->beneficiary . 'registerbeneficiary';
+        $body = array();
         if ($request->radio_ifsc == "Yes") {
             $body = array(
                 "mobile" => $request->phone,
