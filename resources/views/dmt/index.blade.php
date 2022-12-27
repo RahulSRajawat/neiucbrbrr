@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Add Recharge Plan')
+@section('title', 'Money Transfer Detail')
 @section('content')
     <div class="conatiner-fluid content-inner mt-n5 py-0">
         <div>
