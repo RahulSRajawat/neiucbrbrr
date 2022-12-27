@@ -158,6 +158,7 @@ Route::group(["prefix" => "retailer", "middleware" => ["isRetailer", "auth", "Pr
     Route::group(["prefix" => "dmt"], function () {
         Route::get('money-transfer-details/{phone}', [DmtController::class, 'index'])->name("dmt.index");
         Route::post('query-remmiter', [DmtController::class, 'query_remmiter'])->name("dmt.query-remmiter");
+        Route::get('register-remmiter/{phone}', [DmtController::class, 'register_remmiter'])->name("dmt.register-remmiter");
         Route::get('money-transfer', [DmtController::class, 'create'])->name("dmt.remmiter");
         Route::get('money-transfer-confirm', [DmtController::class, 'confirm'])->name("dmt.confirm");
     });
