@@ -37,8 +37,14 @@ class DmtController extends Controller
 
     public function register_remmiter($phone)
     {
- 
-        return view("dmt.register-remmiter", compact('phone'));
+        $service = 'dmt/remitter/queryremitter';
+        $body = array("mobile" => $phone, "bank3_flag" => "NO");
+        $res = json_decode(ApiController::post($service, $body));
+        $stateresp  = "";
+        if ($res->response_code == 0) {
+            $stateresp = $res->stateresp;
+        } 
+        return view("dmt.register-remmiter", compact('phone','stateresp'));
     }
     /**
      * Store a newly created resource in storage.
