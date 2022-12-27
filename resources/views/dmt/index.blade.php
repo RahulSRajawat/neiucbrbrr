@@ -254,7 +254,7 @@
         $('#close_panel_btn1').click(function() {
             $('#add_bene').toggle(500);
         });
-        $("input:radio[name='radio_ifsc']:checked").on("click",function(){
+        $("input:radio[name='radio_ifsc']").on("click",function(){
             if($(this).val() == "Yes"){
                 $(".ifsc-field").show();
             }else{
