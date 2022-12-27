@@ -73,9 +73,18 @@
                             <div class="white_bg add-bene half_padd" id="add_bene" style="display: none;">
                                 <div class="close_panel_btn" id="close_panel_btn1"><a href="javascript:"
                                         class="btn-close-bene"><i class="fa fa-close"></i></a></div>
-                                <form class="one_col" method="post">
+                                <form class="one_col" method="post" action="{{ route('dmt.register-store-beneficiary') }}">
                                     <div class="row pos_rel">
                                         <div class="head">Register Beneficiary</div>
+                                        @if (session('success'))
+                                            <div class="alert alert-success mt-3">
+                                                {{ session('success') }}
+                                            </div>
+                                        @elseif(session('danger'))
+                                            <div class="alert alert-danger mt-3">
+                                                {{ session('danger') }}
+                                            </div>
+                                        @endif
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Select Bank* :</label>
@@ -118,8 +127,8 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Mobile* :</label>
-                                                <input type="number" readonly value="{{ $detail->mobile }}" name="phone" id="phone"
-                                                    class="form-control">
+                                                <input type="number" readonly value="{{ $detail->mobile }}"
+                                                    name="phone" id="phone" class="form-control">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -261,10 +270,10 @@
         $('#close_panel_btn1').click(function() {
             $('#add_bene').toggle(500);
         });
-        $("input:radio[name='radio_ifsc']").on("click",function(){
-            if($(this).val() == "Yes"){
+        $("input:radio[name='radio_ifsc']").on("click", function() {
+            if ($(this).val() == "Yes") {
                 $(".ifsc-field").show();
-            }else {
+            } else {
                 $(".ifsc-field").hide();
             }
         });
