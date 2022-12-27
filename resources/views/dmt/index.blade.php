@@ -13,11 +13,13 @@
                                     <li>Mobile :</li>
                                     <li>Month Limit :</li>
                                 </ul>
+                                @foreach ($details as $detail)
                                 <ul class="details">
-                                    <li><i class="fa fa-user"></i> {{ $details->fname }} {{ $details->lname }}</li>
-                                    <li><i class="fa fa-mobile"></i> {{ $details->mobile }}</li>
+                                    <li><i class="fa fa-user"></i> {{ $detail->fname }} {{ $detail->lname }}</li>
+                                    <li><i class="fa fa-mobile"></i> {{ $detail->mobile }}</li>
                                     <li class="rem-limit"><i class="fa fa-inr"></i> 25000.00</li>
                                 </ul>
+                                @endforeach
                             </div>
                             <div class="benelist_btn">
                                 <ul>
