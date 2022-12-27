@@ -170,10 +170,20 @@ class DmtController extends Controller
     public function beneficiary_status($id)
     {
         $beneficiary_table = DmtBeneficiary::where("bene_id",$id)->where('user_id',Auth::id())->first();
-        dd($beneficiary_table->bene_id);
-        // $beneficiary_detail = $this->beneficiary . 'registerbeneficiary/deletebeneficiary';
-        // $body = array("mobile" => $phone, "bene_id" => $id);
-        // $res = json_decode(ApiController::post($beneficiary_detail, $body));
-        // return redirect()->route('dmt.index', $phone)->with("status", $res->message);
+        $body = array(
+            "mobile" => $beneficiary_table->mobile,
+            "benename" => $beneficiary_table->benename,
+            "bankid" => $beneficiary_table->bankid,
+            "accno" => $beneficiary_table->accno,
+            "gst_state" => "07",
+            "dob" => $beneficiary_table->dob,
+            "address" => $beneficiary_table->address,
+            "pincode" => $beneficiary_table->pincode,
+            "referenceid" => rand(9999999999,1000000000),
+            "bene_id" => $id
+        );
+        $beneficiary_detail = $this->beneficiary . 'registerbeneficiary/benenameverify';
+        $res = json_decode(ApiController::post($beneficiary_detail, $body));
+        return redirect()->route('dmt.index', $beneficiary_table->mobile)->with("success", "Beneficiary Account Verified Successfully!");
     }
 }
