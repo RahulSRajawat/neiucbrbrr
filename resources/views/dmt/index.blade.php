@@ -11,6 +11,14 @@
                                 <div class="alert alert-success">
                                     {{ session('status') }}
                                 </div>
+                            @elseif (session('success'))
+                                <div class="alert alert-success mt-3">
+                                    {{ session('success') }}
+                                </div>
+                            @elseif(session('danger'))
+                                <div class="alert alert-danger mt-3">
+                                    {{ session('danger') }}
+                                </div>
                             @endif
                             <div class="white_bg user_details">
                                 <ul class="heads">
@@ -70,22 +78,23 @@
                                     </div>
                                 </form>
                             </div>
-                            <div class="white_bg add-bene half_padd" id="add_bene" style="display: none;">
+                            <div class="white_bg add-bene half_padd" id="add_bene"
+                                {{ $errors->any() ? '' : 'style="display: none;"' }}>
                                 <div class="close_panel_btn" id="close_panel_btn1"><a href="javascript:"
                                         class="btn-close-bene"><i class="fa fa-close"></i></a></div>
                                 <form class="one_col" method="post" action="{{ route('dmt.register-store-beneficiary') }}">
                                     @csrf
                                     <div class="row pos_rel">
                                         <div class="head">Register Beneficiary</div>
-                                        @if (session('success'))
-                                            <div class="alert alert-success mt-3">
-                                                {{ session('success') }}
+                                        @if ($errors->any())
+                                            <div class="alert alert-danger">
+                                                <ul>
+                                                    @foreach ($errors->all() as $error)
+                                                        <li>{{ $error }}</li>
+                                                    @endforeach
+                                                </ul>
                                             </div>
-                                        @elseif(session('danger'))
-                                            <div class="alert alert-danger mt-3">
-                                                {{ session('danger') }}
-                                            </div>
-                                        @endif
+                                        @endif 
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Select Bank* :</label>
