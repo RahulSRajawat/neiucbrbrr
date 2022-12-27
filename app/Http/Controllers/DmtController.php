@@ -113,27 +113,27 @@ class DmtController extends Controller
         if ($request->radio_ifsc == "Yes") {
             $body = array(
                 "mobile" => $request->phone,
-                "address" => $request->address,
-                "pincode" => $request->pin_code,
-                "dob" => $request->dob,
-                "bankid" => $request->bank,
                 "benename" => $request->benename,
-                "accno " => $request->accno,
+                "bankid" => $request->bank,
+                "accno" => $request->accno,
                 "ifsccode" => $request->ifsccode,
                 "verified" => "0",
-                "gst_state" => "07"
+                "gst_state" => "07",
+                "dob" => $request->dob,
+                "address" => $request->address,
+                "pincode" => $request->pin_code
             );
         } else {
             $body = array(
                 "mobile" => $request->phone,
-                "address" => $request->address,
-                "pincode" => $request->pin_code,
-                "dob" => $request->dob,
-                "bankid" => $request->bank,
                 "benename" => $request->benename,
-                "accno " => $request->accno,
+                "bankid" => $request->bank,
+                "accno" => $request->accno,
                 "verified" => "0",
-                "gst_state" => "07"
+                "gst_state" => "07",
+                "dob" => $request->dob,
+                "address" => $request->address,
+                "pincode" => $request->pin_code
             );
         }
         $res = json_decode(ApiController::post($service, $body));
@@ -152,9 +152,9 @@ class DmtController extends Controller
                 "ifsc" => $data->ifsc
             ]);
             return redirect()->route('dmt.index')->with("success", $res->message);
-        } else {
-            return redirect()->route("dmt.index", $request->phone)->with("danger", $res->message);
+            exit();
         }
+        return redirect()->route("dmt.index", $request->phone)->with("danger", $res->message);
     }
     public function confirm()
     {
