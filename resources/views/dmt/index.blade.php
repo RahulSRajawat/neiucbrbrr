@@ -148,7 +148,7 @@
                                                 <div class="form-check form-check-inline">
                                                     <label class="form-check-label">
                                                         <input class="form-check-input" type="radio" name="radio_ifsc"
-                                                            value="Yes"> No
+                                                            value="No"> No
                                                     </label>
                                                 </div>
                                             </div>
@@ -257,7 +257,7 @@
         $("input:radio[name='radio_ifsc']").on("click",function(){
             if($(this).val() == "Yes"){
                 $(".ifsc-field").show();
-            }else{
+            }else {
                 $(".ifsc-field").hide();
             }
         });
