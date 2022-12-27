@@ -151,7 +151,7 @@ class DmtController extends Controller
                 "address" => $request->address,
                 "ifsc" => $data->ifsc
             ]);
-            return redirect()->route('dmt.index')->with("success", $res->message);
+            return redirect()->route('dmt.index', $request->phone)->with("success", $res->message);
             exit();
         }
         return redirect()->route("dmt.index", $request->phone)->with("danger", $res->message);
