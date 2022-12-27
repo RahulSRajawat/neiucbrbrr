@@ -26,17 +26,17 @@
                             </div>
                             <div class="benelist_btn">
                                 <ul>
-                                    <li>
+                                    {{-- <li>
                                         <button class="btn changepin" id="changepin"><i class="fa fa-key"></i> Change
                                             MPIN</button>
-                                    </li>
+                                    </li> --}}
                                     <li>
                                         <button class="btn addnew-bene" id="addnew_bene"><i class="fa fa-user"></i> Register
                                             Beneficiary</button>
                                     </li>
-                                    <li>
+                                    {{-- <li>
                                         <button class="btn resend-pin"> <i class="fa fa-key"></i> Forgotten MPIN?</button>
-                                    </li>
+                                    </li> --}}
                                     <!--<li> <button class="btn fetch-bene" data-id="3808244"><i class='fa fa-search-plus'></i> Fetch Beneficiary</button></li>-->
                                 </ul>
                             </div>
