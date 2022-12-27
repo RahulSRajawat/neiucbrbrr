@@ -1,11 +1,14 @@
 <?php
+
 namespace App\Http\Controllers;
+
 use App\Models\BankList;
 use App\Models\DmtBeneficiary;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+
 class DmtController extends Controller
 {
     public $remitter = "dmt/remitter/";
@@ -156,13 +159,9 @@ class DmtController extends Controller
         }
         return redirect()->route("dmt.index", $request->phone)->with("danger", $res->message);
     }
-    public function confirm()
-    {
-        return view("dmt.confirm");
-    }
     public function beneficiary_delete($id, $phone)
     {
-        $beneficiary_table = DmtBeneficiary::where("bene_id",$id)->first();
+        $beneficiary_table = DmtBeneficiary::where("bene_id", $id)->first();
         DmtBeneficiary::destroy($beneficiary_table->id);
         $beneficiary_detail = $this->beneficiary . 'registerbeneficiary/deletebeneficiary';
         $body = array("mobile" => $phone, "bene_id" => $id);
@@ -171,7 +170,7 @@ class DmtController extends Controller
     }
     public function beneficiary_status($id)
     {
-        $beneficiary_table = DmtBeneficiary::where("bene_id",$id)->where('user_id',Auth::id())->first();
+        $beneficiary_table = DmtBeneficiary::where("bene_id", $id)->where('user_id', Auth::id())->first();
         $body = array(
             "mobile" => $beneficiary_table->mobile,
             "benename" => $beneficiary_table->benename,
@@ -181,11 +180,29 @@ class DmtController extends Controller
             "dob" => $beneficiary_table->dob,
             "address" => $beneficiary_table->address,
             "pincode" => $beneficiary_table->pincode,
-            "referenceid" => rand(9999999999,1000000000),
+            "referenceid" => rand(9999999999, 1000000000),
             "bene_id" => $id
         );
         $beneficiary_detail = $this->beneficiary . 'registerbeneficiary/benenameverify';
         $res = json_decode(ApiController::post($beneficiary_detail, $body));
         return redirect()->route('dmt.index', $beneficiary_table->mobile)->with("success", "Beneficiary Account Verified Successfully!");
+    }
+    public function confirm(Request $request)
+    {
+        $remitter_detail = $this->remitter . 'queryremitter';
+        $body = array("mobile" => $request->phone, "bank3_flag" => "NO");
+        $res = json_decode(ApiController::post($remitter_detail, $body));
+        $detail  = array();
+        if ($res->response_code == 1) {
+            $detail = $res->data;
+        }
+        $beneficiary_detail = $this->beneficiary . 'registerbeneficiary/fetchbeneficiarybybeneid';
+        $body = array("mobile" => $request->phone,"beneid"=>$request->bene_id);
+        $res = json_decode(ApiController::post($beneficiary_detail, $body));
+        $beneficiary_fetch_bene  = array();
+        if ($res->response_code == 1) {
+            $beneficiary_fetch_bene = $res->data;
+        }
+        return view('dmt.confirm', compact('detail', 'beneficiary_fetch_bene', 'amount')); 
     }
 }

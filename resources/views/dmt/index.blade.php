@@ -225,11 +225,12 @@
                                             </a>
                                         </div>
                                         <div class="col-sm-3 reg_bene_det">
-                                            <form class="one_col dmt-submit" id="confirmTxn" method="post"
-                                                accept-charset="utf-8">
-                                                <input type="hidden" name="receiverToken" value="34682971">
+                                            <form class="one_col dmt-submit" id="confirmTxn" method="get"  action="{{ route('dmt.confirm') }}">
+                                                @csrf
+                                                <input type="hidden" name="bene_id" value="{{ $beneficiary_fetch->bene_id }}">
+                                                <input type="hidden" name="phone" value="{{ $detail->mobile }}">
                                                 <div class="bene_pro">
-                                                    <input type="text" name="amount" autocomplete="off"
+                                                    <input type="number" name="amount" autocomplete="off"
                                                         pattern="[0-9]{3,5}" class="form-control" required="true">
                                                     <button type="submit" style="width:auto !important;">Pay</button>
                                                 </div>

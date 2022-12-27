@@ -92,9 +92,11 @@ th {
                                         </tr>
                                     </thead>
                                     <tbody>
+                                      
+
                                         <tr>
-                                            <td>RAHUL RAHUL</td>
-                                            <td>9755678764</td>
+                                            <td>{{ $detail->fname }} {{ $detail->lname }}</td>
+                                            <td>{{ $detail->mobile }}</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -114,10 +116,10 @@ th {
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>RAHUL SINGH RAJAWAT</td>
-                                            <td>919755678764</td>
-                                            <td>PAYTM PAYMENTS BANK LIMITED</td>
-                                            <td>PYTM0123456</td>
+                                            <td>{{ $beneficiary_fetch_bene->name }}</td>
+                                            <td>{{ $beneficiary_fetch_bene->accno }}</td>
+                                            <td>{{ $beneficiary_fetch_bene->bankname }}</td>
+                                            <td>{{ $beneficiary_fetch_bene->ifsc }}</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -136,7 +138,7 @@ th {
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td><i class="fa fa-inr"></i> <strong>200&nbsp; ( Two hundred Only)</strong></td>
+                                            <td><i class="fa fa-inr"></i> <strong>{{ $amount }}&nbsp; ( Two hundred Only)</strong></td>
                                             <td><i class="fa fa-inr"></i> <strong>10</strong></td>
                                             <td>
                                                 <label>
