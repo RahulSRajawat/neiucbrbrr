@@ -103,4 +103,10 @@ class DmtController extends Controller
     {
         return view("dmt.confirm");
     }
+    public function beneficiary_delete($id,$phone){
+        $beneficiary_detail = $this->beneficiary.'registerbeneficiary/deletebeneficiary';
+        $body = array("mobile" => $phone,"bene_id"=>$id);
+        $res = json_decode(ApiController::post($beneficiary_detail, $body));
+        return redirect()->route('dmt.index', $phone)->with("status", $res->message);
+    }
 }
