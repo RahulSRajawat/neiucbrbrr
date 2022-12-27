@@ -117,6 +117,13 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
+                                                <label>Mobile* :</label>
+                                                <input type="number" readonly value="{{ $detail->mobile }}" name="phone" id="phone"
+                                                    class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
                                                 <label>Date Of Birth* :</label>
                                                 <input type="date" name="dob" id="dob"
                                                     class="form-control">
@@ -153,7 +160,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-12 ifsc-field" style="display: none;">
+                                        <div class="col-md-6 ifsc-field" style="display: none;">
                                             <div class="form-group">
                                                 <label>IFSC Code :</label>
                                                 <input type="text" name="ifsccode" id="ifsccode"

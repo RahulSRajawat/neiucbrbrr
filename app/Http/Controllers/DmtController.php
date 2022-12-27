@@ -98,6 +98,27 @@ class DmtController extends Controller
             return redirect()->route("dmt.register-remmiter", $request->phone)->with("status", $res->message);
         }
     }
+    public function store_register_beneficiary(Request $request)
+    {
+        $request->validate([
+            'phone' => 'required|max:10',
+            'pin_code' => 'required|max:6',
+            "fname" => 'required',
+            "lname" => 'required',
+            "otp" => 'required|max:6',
+            "dob" => 'required',
+            "address" => 'required'
+        ]);
+        
+        $service = $this->remitter.'registerremitter';
+        $body = array("mobile" => $request->phone,"firstname"=>$request->fname,"lastname"=>$request->lname,"address"=>$request->address,"otp"=>$request->otp,"pincode"=>$request->pin_code,"stateresp"=>$request->stateresp,"bank3_flag"=>"yes","dob"=>$request->fname,"gst_state"=>"07");
+        $res = json_decode(ApiController::post($service, $body));
+        if ($res->response_code == 1) {
+            return redirect()->route('dmt.remmiter')->with("status", $res->message)->with("status", $res->message);
+        } else {
+            return redirect()->route("dmt.register-remmiter", $request->phone)->with("status", $res->message);
+        }
+    }
 
     public function confirm()
     {
