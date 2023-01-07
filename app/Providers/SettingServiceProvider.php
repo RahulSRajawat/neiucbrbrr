@@ -25,7 +25,7 @@ class SettingServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-       
+
         config()->set('settings',Setting::first());
     }
 }
